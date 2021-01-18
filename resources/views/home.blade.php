@@ -16,6 +16,364 @@
         <!-- css -->
         <link href="{{ asset('css/top.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="responsive.css" />
+
+        <style>
+          html {
+    height: 100%;
+    width:100%;
+}
+
+body {
+    height : 100%;   
+    margin : 0;
+}
+
+a {
+    text-decoration:none;
+}
+    
+a:link {
+    color:#000000;
+}
+    
+a:visited {
+    color:#000000;
+}
+
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1170px;
+    width: 80%;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+
+
+
+/* header
+--------------------*/
+header {
+    height: 180px;
+    width: 100%;
+}
+
+.header-left {
+    margin-left: 50px; 
+    float: left;
+}
+
+.header-left img {
+    width: 250px;
+}
+
+
+/* navi
+--------------------*/
+
+nav {
+    height: 15px;
+    margin: 80px auto 0 auto;
+    position: relative;
+}
+
+nav ul {
+    margin-left: auto;
+    float: right;
+}
+
+nav li {
+    margin-right: 50px;
+    opacity: 0.6;
+    font-weight: bold;
+    float: left;
+}
+
+nav li:hover {
+    opacity: 1;
+}
+
+#navi {
+    display: none;
+}
+
+
+
+
+/* main
+--------------------*/
+
+.top-area {
+    background-image: url("https://thumb.photo-ac.com/88/88ddddea8d503541fd08adf08c69d3fa_t.jpeg");
+    background-size: cover;
+    height:600px;
+    width: 100%;
+}
+
+.message {
+    color: #311731;
+    width: 60%;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.message h2 {
+    font-size: 50px;
+    letter-spacing: 5px;
+    padding-top: 50px;
+}
+
+.message p {
+    font-weight: bold;
+    letter-spacing: 5px;
+    line-height: 40px;
+    padding-bottom: 50px;
+    font-size:30px
+}
+
+
+/* contents
+--------------------*/
+
+.contents {
+    margin-top: 50px;
+    display:flex;
+}
+
+.contents h1 {
+    text-align: center;
+    color:#4F4B4B;
+    font-size: 30px;
+    font-family: 'Gurmukhi MN',sans-serif;
+}
+
+
+
+/* contents(ジャンル検索)
+--------------------*/
+.menu{
+    margin-top:10px;
+    margin-right:100px;
+    margin-bottom:10px;
+    margin-left:10px;
+}
+
+.top-genre__img{
+    width:140px;
+    height:110px;
+}
+
+
+.top-genres {
+    display: flex;
+}
+
+.top-genre{
+    margin-right:10px;
+    margin-bottom:10px;
+    position: relative;
+}
+
+.top-genre__font{
+    position: absolute;
+    top: 55px;
+    left:55px;
+}
+
+.top-genre__name{
+    color:rgb(34, 33, 33);
+    font-size:20px;
+    font-weight: bold;
+}
+
+.top-genre__store-count{
+    font-size:13px;
+}
+
+/* contents(新規登録へ)
+--------------------*/
+.user-info-container{
+    width:100%;
+    margin: 30px;
+}
+
+
+.top-container{
+    text-align: center;
+    width: 50%;
+    padding: 30px;
+    background-color: oldlace;
+}
+
+.explain-login{
+    display: inline-block;
+    text-align: center;
+    margin: 8px 0;
+    color: gray;
+    font-size: 12px;
+    width:70%;
+}
+
+
+.sign-up-box .link-btn{
+    padding: 1em 2em;
+    border: solid 1px #0f9ada;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+    background: #03A9F4;
+    color: #FFF;
+    font-size: 12px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+}
+
+/* contents(マイプロフィール欄)
+--------------------*/
+.user-info-containers{
+    width:100%;
+    margin: 30px;
+}
+
+
+.top-containers{
+    text-align: center;
+    width: 80%;
+    padding: 30px;
+    background-color: oldlace;
+}
+
+.profile_list{
+    margin: 8px 0;
+    color: gray;
+    font-size: 18px;
+    width:70%;
+}
+
+.profile_list li{
+    margin: 30px;
+}
+
+
+
+.vision-area {
+    margin-top: 50px;
+    text-align: center;
+    color: #4F4B4B;
+    height: 380px;
+}
+
+.visions {
+    width: 33%;
+    float: left;
+}
+
+.visions img {
+    width:60%;
+}
+
+.vision-icon p {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.text-contents {
+    width: 80%;
+    display: inline-block;
+}
+
+
+
+
+.mandatory {
+    color: white;
+    font-size: 12px;
+    background-color: red;
+    padding: 3px 3px;
+    margin-left: 5px;
+}
+.alertarea {
+    color: red;
+    background-color: #fee;
+    background-image: url("img/alerticon.png");
+    background-repeat: no-repeat;
+    background-position: 0.35em center;
+    display: inline-block;
+    border-radius: 0.5em;
+    margin-left: 0.5em;
+    padding:1px 0.5em 1px 32px;
+}
+
+.alertarea:empty {
+    display: none;
+}
+
+
+.page_top{
+    width: 100px;
+    height: 60px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    background: #4F4B4B;
+    opacity: 0.6;
+}
+  
+.page_top a{
+    position: relative;
+    display: block;
+    width: 100px;
+    height: 60px;
+    text-decoration: none;
+}
+
+.page_top a::before{
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    content: '\f102';
+    font-size: 25px;
+    color: #fff;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: -25px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    text-align: center;
+}
+
+.page_top a::after{
+    content: 'PAGE TOP';
+    font-size: 13px;
+    color: #fff;
+    position: absolute;
+    top: 30px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    text-align: center;
+}
+
+footer {
+    width: 80%;
+    margin: 0 auto;
+}
+  
+footer img {
+    width: 125px;
+}
+
+footer p {
+    color: #b3aeb5;
+    font-size: 12px;
+}
+        </style>
     </head>
 
      <body>
@@ -33,6 +391,9 @@
 
                   <ul class="top-right links">
                      <!-- Authentication Links -->
+                      <li>
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/post_menu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>メニューを作る</a>
+                      </li>
                       <li>
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/mypage/{{ Auth::user()->id }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>マイページへ</a>
                       </li>
@@ -79,12 +440,20 @@
         <!-- container -->
         <div class="contents">
             <div class="area">
+              <div class="menu_post">
+               <h1>メニューを作る</h1>
+               <button lass="menu_post_link"><a href="/post_menu" >メニュー作成ページはこちらから</a></button>
+              </div>
+
               <div class="menu">
-               <h1>メニュー検索</h1>
-                <form method="post">
-                  <input placeholder="キーワード[例：yohji yamamoto]" name="keyword">
-                  <input type="submit" name="commit" value="検 索">
-                </form>
+                 <h1>メニューを探す</h1>
+                 <h2 class='search-genre__title'><span>キーワードから探す</span></h2>
+                  <form method="post">
+                  @csrf
+                    <input placeholder="キーワード[例：yohji yamamoto]" name="serch_menu">
+                    <input type="submit" name="commit" value="検 索">
+                  </form>
+              <!--
                 <div class='search-genre'>
                       <h2 class='search-genre__title'>
                       <span>ジャンルから探す</span>
@@ -92,7 +461,7 @@
                       <div class='search-genre__area'>
                         <ul class='top-genres'>
                           <li class='top-genre'>
-                            <a class="top-genre-link" href="/shops/search?q%5Bgenres_name_eq%5D=%E3%83%96%E3%83%A9%E3%83%B3%E3%83%89%E5%8F%A4%E7%9D%80"><img class="top-genre__img" src="https://contents.oricon.co.jp/special/img/55000/55229/thumb/img660/1601452520816.png" />
+                            <a class="top-genre-link" href="/menu/serch_arm"><img class="top-genre__img" src="https://contents.oricon.co.jp/special/img/55000/55229/thumb/img660/1601452520816.png" />
                                <div class="top-genre__font">
                                   <div class='top-genre__name'>
                                     <span>上肢</span>
@@ -104,7 +473,7 @@
                             </a>
                           </li>
                           <li class='top-genre'>
-                             <a class="top-genre-link" href=""><img class="top-genre__img" src="https://cdn.bg-mania.jp/images/2020/06/tbm_20200605195931.jpeg" />
+                             <a class="top-genre-link" href="/menu/serch_leg"><img class="top-genre__img" src="https://cdn.bg-mania.jp/images/2020/06/tbm_20200605195931.jpeg" />
                              <div class="top-genre__font">
                                <div class='top-genre__name'>
                                  <span>下肢</span>
@@ -116,7 +485,7 @@
                              </a>
                           </li>
                           <li class='top-genre'>
-                             <a class="top-genre-link" href=""><img class="top-genre__img" src="https://img.freepik.com/free-photo/muscular-man-showing-six-pack-abs-isolated-on-white-background_1150-2947.jpg?size=626&ext=jpg" />
+                             <a class="top-genre-link" href="/menu/serch_trunk"><img class="top-genre__img" src="https://img.freepik.com/free-photo/muscular-man-showing-six-pack-abs-isolated-on-white-background_1150-2947.jpg?size=626&ext=jpg" />
                              <div class="top-genre__font">
                                 <div class='top-genre__name'>
                                   <span>体幹</span>
@@ -128,7 +497,7 @@
                              </a>
                           </li>
                           <li class='top-genre'>
-                             <a class="top-genre-link" href=""><img class="top-genre__img" src="https://grapee.jp/wp-content/uploads/13480_main-768x576.jpg" />
+                             <a class="top-genre-link" href="/menu/serch_finger"><img class="top-genre__img" src="https://grapee.jp/wp-content/uploads/13480_main-768x576.jpg" />
                              <div class="top-genre__font">
                                 <div class='top-genre__name'>
                                   <span>手指</span>
@@ -140,10 +509,10 @@
                              </a>
                           </li>
                           <li class='top-genre'>
-                             <a class="top-genre-link" href=""><img class="top-genre__img" src="https://www.sakura-st-dc.com/shared/images/letter/0006.jpg" />
+                             <a class="top-genre-link" href="/menu/serch_vocalization"><img class="top-genre__img" src="https://www.sakura-st-dc.com/shared/images/letter/0006.jpg" />
                              <div class="top-genre__font">
                                 <div class='top-genre__name'>
-                                  <span>言葉</span>
+                                  <span>発声</span>
                                 </div>
                                 <div class='top-genre__store-count'>
                                    <span>6件</span>
@@ -155,15 +524,207 @@
                       </div>
                       
                 </div>
-          
+               -->
+                <div class='search-genre'>
+                      <h2 class='search-genre__title'>
+                      <span>ジャンルから探す</span>
+                      </h2>
+                      <div class='search-genre__area'>
+                        <ul class='top-genres'>
+                           <li class='top-genre'>
+                             <form method="post">
+                             @csrf
+                              <input type="hidden" name="serch_menu" value="上肢">
+                              <button type="submit">
+                              <a class="top-genre-link"><img class="top-genre__img" src="https://contents.oricon.co.jp/special/img/55000/55229/thumb/img660/1601452520816.png" />
+                              <div class="top-genre__font">
+                                 <div class='top-genre__name'>
+                                   <span>上肢</span>
+                                 </div>
+                                 <div class='top-genre__store-count'>
+                                    <span>6件</span>
+                                 </div>
+                                </div>
+                              </a>
+                              </button>
+                             </form>
+                            </li>
+                            <li class='top-genre'>
+                             <form method="post">
+                             @csrf
+                              <input type="hidden" name="serch_menu" value="下肢">
+                              <button type="submit">
+                              <a class="top-genre-link"><img class="top-genre__img" src="https://cdn.bg-mania.jp/images/2020/06/tbm_20200605195931.jpeg" />
+                              <div class="top-genre__font">
+                                 <div class='top-genre__name'>
+                                   <span>下肢</span>
+                                 </div>
+                                 <div class='top-genre__store-count'>
+                                    <span>6件</span>
+                                 </div>
+                                </div>
+                              </a>
+                              </button>
+                             </form>
+                            </li>
+                            <li class='top-genre'>
+                             <form method="post">
+                             @csrf
+                              <input type="hidden" name="serch_menu" value="体幹">
+                              <button type="submit">
+                              <a class="top-genre-link"><img class="top-genre__img" src="https://img.freepik.com/free-photo/muscular-man-showing-six-pack-abs-isolated-on-white-background_1150-2947.jpg?size=626&ext=jpg" />
+                              <div class="top-genre__font">
+                                 <div class='top-genre__name'>
+                                   <span>体幹</span>
+                                 </div>
+                                 <div class='top-genre__store-count'>
+                                    <span>6件</span>
+                                 </div>
+                                </div>
+                              </a>
+                              </button>
+                             </form>
+                            </li>
+                            <li class='top-genre'>
+                             <form method="post">
+                             @csrf
+                              <input type="hidden" name="serch_menu" value="手指">
+                              <button type="submit">
+                              <a class="top-genre-link"><img class="top-genre__img" src="https://grapee.jp/wp-content/uploads/13480_main-768x576.jpg" />
+                              <div class="top-genre__font">
+                                 <div class='top-genre__name'>
+                                   <span>手指</span>
+                                 </div>
+                                 <div class='top-genre__store-count'>
+                                    <span>6件</span>
+                                 </div>
+                                </div>
+                              </a>
+                              </button>
+                             </form>
+                            </li>
+                            <li class='top-genre'>
+                              <form method="post">
+                              @csrf
+                               <input type="hidden" name="serch_menu" value="発声">
+                               <button type="submit">
+                               <a class="top-genre-link"><img class="top-genre__img" src="https://www.sakura-st-dc.com/shared/images/letter/0006.jpg" />
+                               <div class="top-genre__font">
+                                  <div class='top-genre__name'>
+                                    <span>発声</span>
+                                  </div>
+                                  <div class='top-genre__store-count'>
+                                     <span>6件</span>
+                                  </div>
+                                 </div>
+                               </a>
+                               </button>
+                              </form>
+                             </li>
+                        </ul>
+                      </div>
+                      
+                </div>
+         
                 <div class='search-genre'>
                       <h2 class='search-genre__title'>
                       <span>目標から探す</span>
                       </h2>
                       <div class='search-genre__area'>
                       <ul class='top-genres'>
+                            <li class='top-genre'>
+                             <form method="post">
+                             @csrf
+                              <input type="hidden" name="serch_menu" value="食事">
+                              <button type="submit">
+                              <a class="top-genre-link"><img class="top-genre__img" src="https://resources.matcha-jp.com/resize/720x2000/2019/10/24-88964.jpeg" />
+                              <div class="top-genre__font">
+                                 <div class='top-genre__name'>
+                                   <span>食事</span>
+                                 </div>
+                                 <div class='top-genre__store-count'>
+                                    <span>6件</span>
+                                 </div>
+                                </div>
+                              </a>
+                              </button>
+                             </form>
+                            </li>
+                            <li class='top-genre'>
+                             <form method="post">
+                             @csrf
+                              <input type="hidden" name="serch_menu" value="歩行">
+                              <button type="submit">
+                              <a class="top-genre-link"><img class="top-genre__img" src="https://www.descente.co.jp/media/wp-content/uploads/2020/07/00383-min.jpg" />
+                              <div class="top-genre__font">
+                                 <div class='top-genre__name'>
+                                   <span>歩行</span>
+                                 </div>
+                                 <div class='top-genre__store-count'>
+                                    <span>6件</span>
+                                 </div>
+                                </div>
+                              </a>
+                              </button>
+                             </form>
+                            </li>
+                            <li class='top-genre'>
+                             <form method="post">
+                             @csrf
+                              <input type="hidden" name="serch_menu" value="洗体">
+                              <button type="submit">
+                              <a class="top-genre-link"><img class="top-genre__img" src="https://diamond.jp/mwimgs/d/d/450/img_dde67115e6fc83cb87250812b9ac37d527601.jpg" />
+                              <div class="top-genre__font">
+                                 <div class='top-genre__name'>
+                                   <span>洗体</span>
+                                 </div>
+                                 <div class='top-genre__store-count'>
+                                    <span>6件</span>
+                                 </div>
+                                </div>
+                              </a>
+                              </button>
+                             </form>
+                            </li>
+                            <li class='top-genre'>
+                             <form method="post">
+                             @csrf
+                              <input type="hidden" name="serch_menu" value="階段">
+                              <button type="submit">
+                              <a class="top-genre-link"><img class="top-genre__img" src="https://woman.mynavi.jp/lifesupport/creditcard/wp/wp-content/uploads/2019/03/walking-waon-1-480x318.jpg" />
+                              <div class="top-genre__font">
+                                 <div class='top-genre__name'>
+                                   <span>階段</span>
+                                 </div>
+                                 <div class='top-genre__store-count'>
+                                    <span>6件</span>
+                                 </div>
+                                </div>
+                              </a>
+                              </button>
+                             </form>
+                            </li>
+                            <li class='top-genre'>
+                              <form method="post">
+                              @csrf
+                               <input type="hidden" name="serch_menu" value="仕事">
+                               <button type="submit">
+                               <a class="top-genre-link"><img class="top-genre__img" src="https://paraft.jp/files/reportsimg/article/16000784/ir0cpxas0jnoac8f60g8dzs9.jpg" />
+                               <div class="top-genre__font">
+                                  <div class='top-genre__name'>
+                                    <span>仕事</span>
+                                  </div>
+                                  <div class='top-genre__store-count'>
+                                     <span>6件</span>
+                                  </div>
+                                 </div>
+                               </a>
+                               </button>
+                              </form>
+                             </li>
+                        <!--
                         <li class='top-genre'>
-                             <a class="top-genre-link" href=""><img class="top-genre__img" src="https://resources.matcha-jp.com/resize/720x2000/2019/10/24-88964.jpeg" />
+                             <a class="top-genre-link" href="/menu/serch_eat"><img class="top-genre__img" src="https://resources.matcha-jp.com/resize/720x2000/2019/10/24-88964.jpeg" />
                              <div class="top-genre__font">
                                <div class='top-genre__name'>
                                  <span>食事</span>
@@ -175,7 +736,7 @@
                              </a>
                           </li>
                           <li class='top-genre'>
-                             <a class="top-genre-link" href=""><img class="top-genre__img" src="https://www.descente.co.jp/media/wp-content/uploads/2020/07/00383-min.jpg" />
+                             <a class="top-genre-link" href="/menu/serch_walk"><img class="top-genre__img" src="https://www.descente.co.jp/media/wp-content/uploads/2020/07/00383-min.jpg" />
                              <div class="top-genre__font">
                                <div class='top-genre__name'>
                                  <span>歩行</span>
@@ -187,7 +748,7 @@
                              </a>
                           </li>
                           <li class='top-genre'>
-                             <a class="top-genre-link" href=""><img class="top-genre__img" src="https://diamond.jp/mwimgs/d/d/450/img_dde67115e6fc83cb87250812b9ac37d527601.jpg" />
+                             <a class="top-genre-link" href="/menu/serch_wash"><img class="top-genre__img" src="https://diamond.jp/mwimgs/d/d/450/img_dde67115e6fc83cb87250812b9ac37d527601.jpg" />
                              <div class="top-genre__font">
                                <div class='top-genre__name'>
                                  <span>洗体</span>
@@ -199,7 +760,7 @@
                              </a>
                           </li>
                           <li class='top-genre'>
-                             <a class="top-genre-link" href=""><img class="top-genre__img" src="https://woman.mynavi.jp/lifesupport/creditcard/wp/wp-content/uploads/2019/03/walking-waon-1-480x318.jpg" />
+                             <a class="top-genre-link" href="/menu/serch_stairs"><img class="top-genre__img" src="https://woman.mynavi.jp/lifesupport/creditcard/wp/wp-content/uploads/2019/03/walking-waon-1-480x318.jpg" />
                              <div class="top-genre__font">
                                <div class='top-genre__name'>
                                  <span>階段</span>
@@ -211,7 +772,7 @@
                              </a>
                           </li>
                           <li class='top-genre'>
-                             <a class="top-genre-link" href=""><img class="top-genre__img" src="https://paraft.jp/files/reportsimg/article/16000784/ir0cpxas0jnoac8f60g8dzs9.jpg" />
+                             <a class="top-genre-link" href="/menu/serch_work"><img class="top-genre__img" src="https://paraft.jp/files/reportsimg/article/16000784/ir0cpxas0jnoac8f60g8dzs9.jpg" />
                              <div class="top-genre__font">
                                <div class='top-genre__name'>
                                  <span>仕事</span>
@@ -222,6 +783,7 @@
                               </div>
                              </a>
                           </li>
+                          -->
                         </ul>
                       </div>
                   </div>
@@ -234,7 +796,7 @@
                <div class='user-info-containers'>
                   <div class='top-containers'>
                      <h3>{{ Auth::user()->name }}さん</h3>
-                     <p><a href="" class="btn btn-sky btn-block">プロフィールへ</a></p>
+                     <p><a href="/mypage/{{ Auth::user()->id }}" class="btn btn-sky btn-block">マイページへ</a></p>
                      <ul class='profile_list'>
                         <div class="btn-sidebar">
                             <li><a href="" class="btn btn-sky btn-block">フォロー一覧</a></li>

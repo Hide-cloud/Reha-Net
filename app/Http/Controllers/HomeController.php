@@ -22,20 +22,17 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+    //マイページへ
     public function index()
     {
         return view('home');
     }
 
-    //メニュー作成画面へ
-    public function makemenu()
+    //メニュー投稿ページへ
+    public function show_post_menu()
     {
-        return view('makemenu');
+        return view('post_menu');
     }
-    
-    //メニュー選択画面へ
-    public function selectmenu()
-    {
-        return view('selectmenu');
-    }
+
 }

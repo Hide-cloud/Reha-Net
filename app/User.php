@@ -36,4 +36,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //Userモデルでcommentを唱えるとPostのクラスを作ってコメントテーブルにアクセス
+    public function menus(){
+        return $this->hasMany(Menu::class);
+    }
 }
