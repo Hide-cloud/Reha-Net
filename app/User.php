@@ -37,8 +37,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    //Userモデルでcommentを唱えるとPostのクラスを作ってコメントテーブルにアクセス
+    //リレーション定義
     public function menus(){
         return $this->hasMany(Menu::class);
     }
+
+    //public function favorites(){
+    //    return $this->hasMany(Favorite::class);
+    //}
+
+    
 }

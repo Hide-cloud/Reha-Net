@@ -14,7 +14,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/top.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="responsive.css" />
 
         <style>
@@ -104,62 +104,16 @@ nav li:hover {
 
 /* contents
 --------------------*/
-
-.contents {
-    margin-top: 50px;
-    display:flex;
+.warapper{
+    text-align: center
 }
 
-.contents h1 {
-    text-align: center;
-    color:#4F4B4B;
-    font-size: 30px;
-    font-family: 'Gurmukhi MN',sans-serif;
+.directory-list{
+    font-size:13px;
 }
 
-
-
-/* contents(メニュー一覧)
---------------------*/
-.menu_area{
-    width:70%;
-    display:inline-block;
-    
-}
-
-.menu_list{
-    text-align: center;
-    border-top: medium solid gray;
-    box-sizing: border-box;
-    font-family: 'メイリオ', 'Meiryo', 'ＭＳ ゴシック','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
-}
-
-.titlebar{
-    border-bottom: thin solid gray;
-    display:flex;
-}
-
-.title{}
-
-.title a{
+.directory-list a{
     color:blue;
-    font-size:18px;
-}
-
-.keyword{
-    display:flex;
-}
-
-.keyword li{
-    margin: 4px 8px 4px 0;
-    padding: 3px 16px;
-    border: solid 1px lightgray;
-    border-radius: 4px;
-    box-shadow: 0 0 4px lightgrey;
-    color: #424242;
-    font-size: 14px;
-    white-space: nowrap;
-    cursor: pointer;
 }
 
 
@@ -198,7 +152,7 @@ footer p {
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>メニューを探す</a>
                       </li>
                       <li>
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/mypage/{{ Auth::user()->id }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>マイページへ</a>
+                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/post_menu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>メニューを作る</a>
                       </li>
                       <li>
                          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -214,50 +168,42 @@ footer p {
                   </ul>
 
                 </nav>
-        <!-- hamburger -->
-                <div id="navi">
-                        <ul>
-                            <li><a href="#about" class="js-smooth-scroll">About</a></li>
-                            <li><a href="#vision" class="js-smooth-scroll">Vison</a></li>
-                            <li><a href="#contact" class="js-smooth-scroll">Contact</a></li>
-                        </ul>
-                </div>
-                <div id="hamburger">
-                    <span class="inner_line" id="line1"></span>
-                    <span class="inner_line" id="line2"></span>   
-                    <span class="inner_line" id="line3"></span>           
-                </div>
+        
         </header>
 
 
-
         <!-- container -->
-        
-         <div class="menu_area">
-            @foreach($arm_menus as $arm_menu)
-                <div class="menu_list">
-                  <div class="titlebar">
-                      <div class="title">
-                         <a href="/menu/{$arm_menu -> id}">{{ $arm_menu -> title }}</p>
-                      </div>
-                      <ul class="keyword">
-                        @foreach($arm_menu -> keyword as $keyword )
-                          <li>{{ $keyword }}</li>
-                        @endforeach
-                      </ul>
+        <div class="warapper">
+             <div class="directory">
+                 <div class="directory-list">
+                     <a href="/"><i class="fas fa-home"></i>Reha-Net</a> 
+                     › <i>{{ $user -> name }}さんのマイページ</i> 
+                 </div>
+             </div>
+             <div class="">
+               <div class="content-wrap">
+                   <div class='user-name'>
+                      <p>{{ $user -> name }}さん のマイページ</p>
                    </div>
-                      <div class="method">
-                         <p>{{ $arm_menu -> method }}</p>
-                      </div>
-                </div>
-            @endforeach
-         </div>
+                   <ul class="user-nav-bar">
+                       <li class="user-nav first-nav">
+                         <a class="user-nav-link" href="/mypage/{{ $user -> id }}"><span class="user-nav-name">トップ</span></a>
+                       </li>
+                       <li class="user-nav">
+                          <a class="user-nav-link" href="/mypage/{{ $user -> id }}/posted_menu"><span class="user-nav-name">投稿したメニュー</span></a>
+                       </li>
+                       <li class="user-nav">
+                          <a class="user-nav-link" href=""><span class="user-nav-name">お気に入り登録済み</span></a>
+                       </li>
+                       <li class="user-nav">
+                          <a class="user-nav-link" href=""><span class="user-nav-name">編集</span></a>
+                       </li>
+                    </ul>
+               </div>
+             </div>
+        </div>
         
 
-        
-        <div class="page_top">
-            <a href="#top" class="js-smooth-scroll"></a>
-        </div>
 
         <!-- footer -->
         <footer>

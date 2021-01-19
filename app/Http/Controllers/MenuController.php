@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Menu;
+use App\Favorite;
 
 class MenuController extends Controller
 {
@@ -40,10 +41,35 @@ class MenuController extends Controller
         return view('serch_menu',['serch_menus' => $serch_menus],['serch_menu' => $serch_menu]);
     }
 
-    //メニュー詳細して一覧表示へ
+    //メニュー検索して一覧表示へ(nonlog)
+    public function serch_nonlog(Request $request_menu){
+        $serch_menu =$request_menu->serch_menu;
+        $serch_menus = Menu::where('title', 'like', "%$serch_menu%")->orWhere('keyword', "$serch_menu")->get();
+        
+        return view('serch_menu(nonlog)',['serch_menus' => $serch_menus],['serch_menu' => $serch_menu]);
+    }
+
+    //メニュー詳細画面へ(nonlog)
+    public function show_menu_detail_nonlog($id){
+        $menu =Menu::find($id);
+
+        //投稿者情報を取得
+        $contributor = Menu::find($id)->user->name;
+        //withメソッドで値をviewへ返す
+        return view('menu_detail(nonlog)',['menu' => $menu])->with('contributor',$contributor);
+    }
+
+
+    //メニュー詳細画面へ
     public function show_menu_detail($id){
         $menu =Menu::find($id);
-        
-        return view('menu_detail',['menu' => $menu]);
+
+        //投稿者情報を取得
+        $contributor = Menu::find($id)->user->name;
+        //お気に入り登録済みかどうかを確認するため
+        $favorite = Favorite::where('menu_id',$id)->first();
+
+        //withメソッドで値をviewへ返す
+        return view('menu_detail',['menu' => $menu],['favorite' => $favorite])->with('contributor',$contributor);
     }
 }

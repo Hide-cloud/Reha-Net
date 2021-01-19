@@ -14,7 +14,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/top.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="responsive.css" />
 
         <style>
@@ -105,31 +105,19 @@ nav li:hover {
 /* contents
 --------------------*/
 
-.warapper{
-    text-align: center
+.contents {
+    margin-top: 50px;
+    display:flex;
 }
 
-.directory-list{
-    font-size:13px;
+.contents h1 {
+    text-align: center;
+    color:#4F4B4B;
+    font-size: 30px;
+    font-family: 'Gurmukhi MN',sans-serif;
 }
 
-.directory-list a{
-    color:blue;
-}
 
-
-.searched_result{
-    margin:30px;
-}
-
-.result_title{
-    font-size:25px;
-    font-weight:bold;
-}
-
-.result_count{
-    margin-left:20px;
-}
 
 /* contents(メニュー一覧)
 --------------------*/
@@ -140,33 +128,29 @@ nav li:hover {
 }
 
 .menu_list{
+    text-align: center;
     border-top: medium solid gray;
     box-sizing: border-box;
     font-family: 'メイリオ', 'Meiryo', 'ＭＳ ゴシック','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
 }
 
 .titlebar{
-    vertical-align: middle;
     border-bottom: thin solid gray;
     display:flex;
-    align-items:center;
 }
 
-.title{
-    margin: 4px 8px 4px 8px;
-}
+.title{}
 
 .title a{
     color:blue;
     font-size:18px;
-    
 }
 
 .keyword{
     display:flex;
 }
 
-.key{
+.keyword li{
     margin: 4px 8px 4px 0;
     padding: 3px 16px;
     border: solid 1px lightgray;
@@ -178,14 +162,6 @@ nav li:hover {
     cursor: pointer;
 }
 
-.keycutbar{
-    margin: 4px 8px 4px 0;
-}
-
-.method_contents{
-    margin: 4px 8px 4px 0;
-    background-color:oldlace;
-}
 
 footer {
     width: 80%;
@@ -205,6 +181,7 @@ footer p {
 
      <body>
         <!-- header -->
+        <!-- header -->
         <header>
             <div class="container" id="top">
                 <div class="header-left">
@@ -212,31 +189,21 @@ footer p {
                         <p>Reha-Net</p>
                       </div>
                 </div>
-                
-                <!-- navi -->
+            
+        <!-- navi -->
                 <nav class="flex-center position-ref full-height">
-
-                  <ul class="top-right links">
-                     <!-- Authentication Links -->
-                      <li>
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>メニューを探す</a>
-                      </li>
-                      <li>
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/mypage/{{ Auth::user()->id }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>マイページへ</a>
-                      </li>
-                      <li>
-                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                          </div>
-                      </li>
-                  </ul>
-
+                   @if (Route::has('login'))
+                   <ul class="top-right links">
+                       @auth
+                           <li><a href="{{ url('/home') }}" class="js-smooth-scroll">{{ Auth::user()->name }}</a></li>
+                       @else
+                           <li><a href="{{ route('login') }}" class="js-smooth-scroll">ログイン</a></li>
+                           @if (Route::has('register'))
+                               <li><a href="{{ route('register') }}" class="js-smooth-scroll">新規登録</a></li>
+                           @endif
+                       @endauth
+                   </ul>
+                    @endif
                 </nav>
         <!-- hamburger -->
                 <div id="navi">
@@ -267,8 +234,8 @@ footer p {
 
              <div class="searched_result">
                   <div class="searched_heading-box__result">
-                     <span class="result_title">"{{ $serch_menu }}"　に関するメニュー</span>
-                     <span class="result_count">25件</span>
+                     <span class="">"{{ $serch_menu }}"　に関するメニュー</span>
+                     <span class="">25件</span>
                   </div>
              </div>
 
@@ -286,21 +253,16 @@ footer p {
                        <div class="menu_list">
                             <div class="titlebar">
                                 <div class="title">
-                                   <a href="/menu/{{ $serch_menu -> id }}">{{ $serch_menu -> title }}</a>
+                                   <a href="/nolog/menu/{{ $serch_menu -> id }}">{{ $serch_menu -> title }}</p>
                                 </div>
                                 <ul class="keyword">
-                                    <li class="key">キーワード：</li>
                                   @foreach($serch_menu -> keyword as $keyword )
-                                    <li class="key">{{ $keyword }}</li>
-                                    <li class="keycutbar">/</li>
+                                    <li>{{ $keyword }}</li>
                                   @endforeach
                                 </ul>
                              </div>
                              <div class="method">
-                               <ul class="keyword">
-                                  <li class="key">方法：</li>
-                                  <li class="method_contents">{{ $serch_menu -> method }}</li>
-                               </ul>
+                                <p>{{ $serch_menu -> method }}</p>
                              </div>
                        </div>
                    @endforeach

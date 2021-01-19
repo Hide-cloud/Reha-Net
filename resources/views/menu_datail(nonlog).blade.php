@@ -105,64 +105,23 @@ nav li:hover {
 /* contents
 --------------------*/
 
-.warapper{
-    text-align: center
+.contents {
+    margin-top: 50px;
+    display:flex;
 }
 
-.directory-list{
-    font-size:13px;
+.contents h1 {
+    text-align: center;
+    color:#4F4B4B;
+    font-size: 30px;
+    font-family: 'Gurmukhi MN',sans-serif;
 }
-
-.directory-list a{
-    color:blue;
-}
-
 
 
 
 /* contents(メニュー一覧)
 --------------------*/
-.menu_area{
-    width:70%;
-}
 
-
-
-.menu-body{
-    display:flex;
-}
-
-.menu-title{
-    color:blue;
-    font-size:18px;   
-}
-
-.menu-header{
-    border-top: medium solid gray;
-    box-sizing: border-box;
-    font-family: 'メイリオ', 'Meiryo', 'ＭＳ ゴシック','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
-}
-
-.keyword{
-    text-align:center;
-    display:flex;
-}
-
-.key{
-    margin: 4px 8px 4px 0;
-    padding: 3px 16px;
-    border: solid 1px lightgray;
-    border-radius: 4px;
-    box-shadow: 0 0 4px lightgrey;
-    color: #424242;
-    font-size: 14px;
-    white-space: nowrap;
-    cursor: pointer;
-}
-
-.keycutbar{
-    margin: 4px 8px 4px 0;
-}
 
 
 
@@ -191,38 +150,28 @@ footer p {
                         <p>Reha-Net</p>
                       </div>
                 </div>
-                
-                <!-- navi -->
+            
+        <!-- navi -->
                 <nav class="flex-center position-ref full-height">
-
-                  <ul class="top-right links">
-                     <!-- Authentication Links -->
-                      <li>
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>メニューを探す</a>
-                      </li>
-                      <li>
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/mypage/{{ Auth::user()->id }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>マイページへ</a>
-                      </li>
-                      <li>
-                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                          </div>
-                      </li>
-                  </ul>
-
+                   @if (Route::has('login'))
+                   <ul class="top-right links">
+                       @auth
+                           <li><a href="{{ url('/home') }}" class="js-smooth-scroll">{{ Auth::user()->name }}</a></li>
+                       @else
+                           <li><a href="{{ route('login') }}" class="js-smooth-scroll">ログイン</a></li>
+                           @if (Route::has('register'))
+                               <li><a href="{{ route('register') }}" class="js-smooth-scroll">新規登録</a></li>
+                           @endif
+                       @endauth
+                   </ul>
+                    @endif
                 </nav>
         <!-- hamburger -->
                 <div id="navi">
                         <ul>
-                            <li><a href="" class="js-smooth-scroll">About</a></li>
-                            <li><a href="" class="js-smooth-scroll">Vison</a></li>
-                            <li><a href="" class="js-smooth-scroll">Contact</a></li>
+                            <li><a href="#about" class="js-smooth-scroll">About</a></li>
+                            <li><a href="#vision" class="js-smooth-scroll">Vison</a></li>
+                            <li><a href="#contact" class="js-smooth-scroll">Contact</a></li>
                         </ul>
                 </div>
                 <div id="hamburger">
@@ -244,47 +193,14 @@ footer p {
              </div>
 
              <div class="menu">
-                 <div class="menu-body">
-                  <div class="menu-header">
+                 <div class="menu-header">
                     <div class="menu-title">
                        <p>{{ $menu -> title }}</p>
                     </div>
                     <div class="menu-keyword">
-                       <ul class="keyword">
-                              <li class="key">キーワード：</li>
-                            @foreach($menu -> keyword as $keyword )
-                              <li class="key">{{ $keyword }}</li>
-                              <li class="keycutbar">/</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    </div>
-                    <div class="favorite_form">
-                        @if(isset($favorite))
-                             @if( $favorite -> user_id == Auth::user()->id && $favorite -> menu_id == $menu -> id)
-                                <form method="post">
-                                   @csrf
-                                     <p>登録済み</p>
-                                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                     <input type="hidden" name="menu_id" value="{{ $menu -> id }}">
-                                     <input type="submit" value="お気に入りから外す">
-                                </form>
-                             @else
-                                <form method="post">
-                                   @csrf
-                                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                     <input type="hidden" name="menu_id" value="{{ $menu -> id }}">
-                                     <input type="submit" value="お気に入りに追加">
-                                </form> 
-                             @endif
-                        @elseif( !isset($favorite) )
-                             <form method="post">
-                                @csrf
-                                  <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                  <input type="hidden" name="menu_id" value="{{ $menu -> id }}">
-                                  <input type="submit" value="お気に入りに追加">
-                             </form>
-                        @endif
+                       @foreach( $menu -> keyword as $keyword)
+                          <li> {{ $keyword }}</li>
+                       @endforeach
                     </div>
                  </div>
                  <div class="menu-container">

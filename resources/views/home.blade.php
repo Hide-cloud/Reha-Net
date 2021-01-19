@@ -140,26 +140,44 @@ nav li:hover {
 --------------------*/
 
 .contents {
-    margin-top: 50px;
+    margin-top: 30px;
+    margin-right: 20px;
     display:flex;
 }
 
-.contents h1 {
-    text-align: center;
+.contents h2 {
     color:#4F4B4B;
-    font-size: 30px;
+    font-size: 25px;
     font-family: 'Gurmukhi MN',sans-serif;
+    margin-left:20px;
 }
 
 
 
-/* contents(ジャンル検索)
+/* contents
 --------------------*/
-.menu{
+.area{
+    background-color:lightgray;
     margin-top:10px;
-    margin-right:100px;
+    margin-right:10px;
     margin-bottom:10px;
     margin-left:10px;
+}
+
+.keywordform{
+  margin-left:20px;
+}
+
+.keywordbox{
+  width:500px;
+  height:40px;
+  font-size:15px;
+}
+
+.kewordbtn{
+  width:70px;
+  height:40px;
+  font-size:20px;
 }
 
 .top-genre__img{
@@ -196,169 +214,11 @@ nav li:hover {
 
 /* contents(新規登録へ)
 --------------------*/
-.user-info-container{
-    width:100%;
-    margin: 30px;
-}
-
-
-.top-container{
-    text-align: center;
-    width: 50%;
-    padding: 30px;
-    background-color: oldlace;
-}
-
-.explain-login{
-    display: inline-block;
-    text-align: center;
-    margin: 8px 0;
-    color: gray;
-    font-size: 12px;
-    width:70%;
-}
-
-
-.sign-up-box .link-btn{
-    padding: 1em 2em;
-    border: solid 1px #0f9ada;
-    border-radius: 4px;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
-    background: #03A9F4;
-    color: #FFF;
-    font-size: 12px;
-    text-decoration: none;
-    text-shadow: 0 1px 0 rgba(0,0,0,0.2);
-}
-
-/* contents(マイプロフィール欄)
---------------------*/
-.user-info-containers{
-    width:100%;
-    margin: 30px;
-}
-
-
-.top-containers{
-    text-align: center;
-    width: 80%;
-    padding: 30px;
-    background-color: oldlace;
-}
-
-.profile_list{
-    margin: 8px 0;
-    color: gray;
-    font-size: 18px;
-    width:70%;
-}
-
-.profile_list li{
-    margin: 30px;
-}
-
-
-
-.vision-area {
-    margin-top: 50px;
-    text-align: center;
-    color: #4F4B4B;
-    height: 380px;
-}
-
-.visions {
-    width: 33%;
-    float: left;
-}
-
-.visions img {
-    width:60%;
-}
-
-.vision-icon p {
-    font-weight: bold;
-    font-size: 30px;
-}
-
-.text-contents {
-    width: 80%;
-    display: inline-block;
-}
 
 
 
 
-.mandatory {
-    color: white;
-    font-size: 12px;
-    background-color: red;
-    padding: 3px 3px;
-    margin-left: 5px;
-}
-.alertarea {
-    color: red;
-    background-color: #fee;
-    background-image: url("img/alerticon.png");
-    background-repeat: no-repeat;
-    background-position: 0.35em center;
-    display: inline-block;
-    border-radius: 0.5em;
-    margin-left: 0.5em;
-    padding:1px 0.5em 1px 32px;
-}
 
-.alertarea:empty {
-    display: none;
-}
-
-
-.page_top{
-    width: 100px;
-    height: 60px;
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    background: #4F4B4B;
-    opacity: 0.6;
-}
-  
-.page_top a{
-    position: relative;
-    display: block;
-    width: 100px;
-    height: 60px;
-    text-decoration: none;
-}
-
-.page_top a::before{
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    content: '\f102';
-    font-size: 25px;
-    color: #fff;
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    top: -25px;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    margin: auto;
-    text-align: center;
-}
-
-.page_top a::after{
-    content: 'PAGE TOP';
-    font-size: 13px;
-    color: #fff;
-    position: absolute;
-    top: 30px;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    margin: auto;
-    text-align: center;
-}
 
 footer {
     width: 80%;
@@ -431,7 +291,7 @@ footer p {
             <div class="top-area">
             <div class="message">
                 <h2>手軽に始めるリハビリ</h2>
-                <p>QOLアップを目指して</p>
+                <p>自分だけのメニューを見つけよう</p>
                 <p>Let's　start　exercise.</p>
             </div>
         </div>
@@ -440,18 +300,12 @@ footer p {
         <!-- container -->
         <div class="contents">
             <div class="area">
-              <div class="menu_post">
-               <h1>メニューを作る</h1>
-               <button lass="menu_post_link"><a href="/post_menu" >メニュー作成ページはこちらから</a></button>
-              </div>
-
               <div class="menu">
-                 <h1>メニューを探す</h1>
                  <h2 class='search-genre__title'><span>キーワードから探す</span></h2>
-                  <form method="post">
+                  <form  class="keywordform" method="post">
                   @csrf
-                    <input placeholder="キーワード[例：yohji yamamoto]" name="serch_menu">
-                    <input type="submit" name="commit" value="検 索">
+                    <input class="keywordbox" placeholder="キーワード[例：yohji yamamoto]" name="serch_menu">
+                    <input class="kewordbtn" type="submit" name="commit" value="検 索">
                   </form>
               <!--
                 <div class='search-genre'>
