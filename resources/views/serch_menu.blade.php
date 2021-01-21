@@ -14,243 +14,48 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/top.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="responsive.css" />
 
-        <style>
-          html {
-    height: 100%;
-    width:100%;
-}
-
-body {
-    height : 100%;   
-    margin : 0;
-}
-
-a {
-    text-decoration:none;
-}
-    
-a:link {
-    color:#000000;
-}
-    
-a:visited {
-    color:#000000;
-}
-
-
-ul {
-    list-style: none;
-}
-
-.container {
-    max-width: 1170px;
-    width: 80%;
-    margin: 0 auto;
-    padding: 50px 0;
-}
-
-
-
-
-/* header
---------------------*/
-header {
-    height: 180px;
-    width: 100%;
-}
-
-.header-left {
-    margin-left: 50px; 
-    float: left;
-}
-
-.header-left img {
-    width: 250px;
-}
-
-
-/* navi
---------------------*/
-
-nav {
-    height: 15px;
-    margin: 80px auto 0 auto;
-    position: relative;
-}
-
-nav ul {
-    margin-left: auto;
-    float: right;
-}
-
-nav li {
-    margin-right: 50px;
-    opacity: 0.6;
-    font-weight: bold;
-    float: left;
-}
-
-nav li:hover {
-    opacity: 1;
-}
-
-#navi {
-    display: none;
-}
-
-
-/* contents
---------------------*/
-
-.warapper{
-    text-align: center
-}
-
-.directory-list{
-    font-size:13px;
-}
-
-.directory-list a{
-    color:blue;
-}
-
-
-.searched_result{
-    margin:30px;
-}
-
-.result_title{
-    font-size:25px;
-    font-weight:bold;
-}
-
-.result_count{
-    margin-left:20px;
-}
-
-/* contents(メニュー一覧)
---------------------*/
-.menu_area{
-    width:70%;
-    display:inline-block;
-    
-}
-
-.menu_list{
-    border-top: medium solid gray;
-    box-sizing: border-box;
-    font-family: 'メイリオ', 'Meiryo', 'ＭＳ ゴシック','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
-}
-
-.titlebar{
-    vertical-align: middle;
-    border-bottom: thin solid gray;
-    display:flex;
-    align-items:center;
-}
-
-.title{
-    margin: 4px 8px 4px 8px;
-}
-
-.title a{
-    color:blue;
-    font-size:18px;
-    
-}
-
-.keyword{
-    display:flex;
-}
-
-.key{
-    margin: 4px 8px 4px 0;
-    padding: 3px 16px;
-    border: solid 1px lightgray;
-    border-radius: 4px;
-    box-shadow: 0 0 4px lightgrey;
-    color: #424242;
-    font-size: 14px;
-    white-space: nowrap;
-    cursor: pointer;
-}
-
-.keycutbar{
-    margin: 4px 8px 4px 0;
-}
-
-.method_contents{
-    margin: 4px 8px 4px 0;
-    background-color:oldlace;
-}
-
-footer {
-    width: 80%;
-    margin: 0 auto;
-}
-  
-footer img {
-    width: 125px;
-}
-
-footer p {
-    color: #b3aeb5;
-    font-size: 12px;
-}
-        </style>
+        
     </head>
 
      <body>
         <!-- header -->
         <header>
-            <div class="container" id="top">
-                <div class="header-left">
-                    <div class="header-left">
-                        <p>Reha-Net</p>
-                      </div>
-                </div>
+            <!-- navi -->
+            <nav class="headerarea">
+
+                <ul class="header-left">
+                   <!-- Authentication Links -->
+                    <li>
+                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ route('home') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Reha_Net</a>
+                    </li>
+                </ul>
+
+
+                <ul class="header-right">
+                   <!-- Authentication Links -->
+                    <li>
+                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/post_menu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>メニューを作る</a>
+                    </li>
+                    <li>
+                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/mypage/{{ Auth::user()->id }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>マイページへ</a>
+                    </li>
+                    <li>
+                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                              {{ __('Logout') }}
+                          </a>
                 
-                <!-- navi -->
-                <nav class="flex-center position-ref full-height">
+                          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                              @csrf
+                          </form>
+                        </div>
+                    </li>
+                </ul>
 
-                  <ul class="top-right links">
-                     <!-- Authentication Links -->
-                      <li>
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>メニューを探す</a>
-                      </li>
-                      <li>
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/mypage/{{ Auth::user()->id }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>マイページへ</a>
-                      </li>
-                      <li>
-                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                          </div>
-                      </li>
-                  </ul>
-
-                </nav>
-        <!-- hamburger -->
-                <div id="navi">
-                        <ul>
-                            <li><a href="#about" class="js-smooth-scroll">About</a></li>
-                            <li><a href="#vision" class="js-smooth-scroll">Vison</a></li>
-                            <li><a href="#contact" class="js-smooth-scroll">Contact</a></li>
-                        </ul>
-                </div>
-                <div id="hamburger">
-                    <span class="inner_line" id="line1"></span>
-                    <span class="inner_line" id="line2"></span>   
-                    <span class="inner_line" id="line3"></span>           
-                </div>
+            </nav>
         </header>
 
 
@@ -272,13 +77,6 @@ footer p {
                   </div>
              </div>
 
-             <div class="shop-paginate">
-                  <ul class="pagination pagination">
-                      
-
-
-                  </ul>
-             </div>
 
              <div class="menu_area">
                 @if(isset($serch_menus))
@@ -288,13 +86,27 @@ footer p {
                                 <div class="title">
                                    <a href="/menu/{{ $serch_menu -> id }}">{{ $serch_menu -> title }}</a>
                                 </div>
+                                
+                                <ul class="keyword">
+                                    <li class="key">対象疾患：</li>
+                                  @if(isset($serch_menu -> disease))
+                                  @foreach($serch_menu -> disease as $disease )
+                                    <li class="key">{{ $disease }}</li>
+                                    <li class="keycutbar">/</li>
+                                  @endforeach
+                                  @endif
+                                </ul>
+                                
                                 <ul class="keyword">
                                     <li class="key">キーワード：</li>
+                                  @if(isset($serch_menu -> keyword))
                                   @foreach($serch_menu -> keyword as $keyword )
                                     <li class="key">{{ $keyword }}</li>
                                     <li class="keycutbar">/</li>
                                   @endforeach
+                                  @endif
                                 </ul>
+
                              </div>
                              <div class="method">
                                <ul class="keyword">
@@ -304,7 +116,7 @@ footer p {
                              </div>
                        </div>
                    @endforeach
-                @else
+                @elseif(empty($serch_menus))
                   <p>まだ"{{ $serch_menu }}"に関するメニューの投稿がありません</p>
                 @endif
                    

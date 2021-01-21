@@ -9,28 +9,38 @@ use App\Favorite;
 
 class MenuController extends Controller
 {
-
-    //投稿メニューをDBに登録し、投稿完了画面へ
+    //投稿メニューをDBに登録し、投稿完了画面へ(Youtubeバージョン)
     public function post_menu(Request $request){
-
+        
+        //メニューをテーブルに追加
         $menuPost = $request->all();
         Menu::create($menuPost);
-        
+
         return view('posted');
    }
 
-   ////メニュー(上肢)検索して表示へ
-   //public function serch_arm(){
-   // $arm_menus = Menu::where('title', 'like', '%肩甲骨%')
-   // ->orWhere('keyword', '上肢')
-   // ->get();
-//
-   // //$user_name = Post::find($id)->user->name;
-   // //withメソッドで値をviewへ返す
-   // //return view('post.comment',['post' => $post],['comments' => $comments])->with('user_name',$user_name);
-   // 
-   // return view('menu.arm',['arm_menus' => $arm_menus]);
-   // }
+    //投稿メニューをDBに登録し、投稿完了画面へ(自作動画バージョン)
+    public function post_menu_myvideo(Request $request){
+        
+        //video_path値に名前をつける
+        $menu_video = $request->file('video_path')->hashName();
+
+        if(isset($request->video_path)){
+        //storeAsでpublic/menu_videoディレクトリに$menu_videoという名前で画像を格納
+        $request->file('video_path')->storeAs('public/menu_video',$menu_video);
+        //$request->file('video_path')->store('public/menu_video');
+        }
+
+        //メニューをテーブルに追加
+        $menuPost = $request->all();
+        $menu_record=Menu::create($menuPost);
+
+        //Menuテーブルのvideo_pathカラムの値を$menu_videoに変更する
+        $menu_record->video_path= $menu_video;
+        $menu_record->save();
+
+        return view('posted');
+   }
 
 
    //メニュー検索して一覧表示へ

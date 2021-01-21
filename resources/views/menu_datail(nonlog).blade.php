@@ -17,168 +17,35 @@
         <link href="{{ asset('css/top.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="responsive.css" />
 
-        <style>
-          html {
-    height: 100%;
-    width:100%;
-}
-
-body {
-    height : 100%;   
-    margin : 0;
-}
-
-a {
-    text-decoration:none;
-}
-    
-a:link {
-    color:#000000;
-}
-    
-a:visited {
-    color:#000000;
-}
-
-
-ul {
-    list-style: none;
-}
-
-.container {
-    max-width: 1170px;
-    width: 80%;
-    margin: 0 auto;
-    padding: 50px 0;
-}
-
-
-
-
-/* header
---------------------*/
-header {
-    height: 180px;
-    width: 100%;
-}
-
-.header-left {
-    margin-left: 50px; 
-    float: left;
-}
-
-.header-left img {
-    width: 250px;
-}
-
-
-/* navi
---------------------*/
-
-nav {
-    height: 15px;
-    margin: 80px auto 0 auto;
-    position: relative;
-}
-
-nav ul {
-    margin-left: auto;
-    float: right;
-}
-
-nav li {
-    margin-right: 50px;
-    opacity: 0.6;
-    font-weight: bold;
-    float: left;
-}
-
-nav li:hover {
-    opacity: 1;
-}
-
-#navi {
-    display: none;
-}
-
-
-/* contents
---------------------*/
-
-.contents {
-    margin-top: 50px;
-    display:flex;
-}
-
-.contents h1 {
-    text-align: center;
-    color:#4F4B4B;
-    font-size: 30px;
-    font-family: 'Gurmukhi MN',sans-serif;
-}
-
-
-
-/* contents(メニュー一覧)
---------------------*/
-
-
-
-
-footer {
-    width: 80%;
-    margin: 0 auto;
-}
-  
-footer img {
-    width: 125px;
-}
-
-footer p {
-    color: #b3aeb5;
-    font-size: 12px;
-}
-        </style>
+        
     </head>
 
      <body>
         <!-- header -->
         <header>
-            <div class="container" id="top">
-                <div class="header-left">
-                    <div class="header-left">
-                        <p>Reha-Net</p>
-                      </div>
-                </div>
-            
-        <!-- navi -->
-                <nav class="flex-center position-ref full-height">
-                   @if (Route::has('login'))
-                   <ul class="top-right links">
-                       @auth
-                           <li><a href="{{ url('/home') }}" class="js-smooth-scroll">{{ Auth::user()->name }}</a></li>
-                       @else
-                           <li><a href="{{ route('login') }}" class="js-smooth-scroll">ログイン</a></li>
-                           @if (Route::has('register'))
-                               <li><a href="{{ route('register') }}" class="js-smooth-scroll">新規登録</a></li>
-                           @endif
-                       @endauth
-                   </ul>
-                    @endif
-                </nav>
-        <!-- hamburger -->
-                <div id="navi">
-                        <ul>
-                            <li><a href="#about" class="js-smooth-scroll">About</a></li>
-                            <li><a href="#vision" class="js-smooth-scroll">Vison</a></li>
-                            <li><a href="#contact" class="js-smooth-scroll">Contact</a></li>
-                        </ul>
-                </div>
-                <div id="hamburger">
-                    <span class="inner_line" id="line1"></span>
-                    <span class="inner_line" id="line2"></span>   
-                    <span class="inner_line" id="line3"></span>           
-                </div>
+            <!-- navi -->
+            <nav class="headerarea">
+
+                <ul class="header-left">
+                <!-- Authentication Links -->
+                    <li>
+                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Reha_Net</a>
+                    </li>
+                </ul>
+
+                 @if (Route::has('login'))
+                 <ul class="header-right">
+                     @auth
+                         <li><a href="{{ url('/home') }}" class="js-smooth-scroll">{{ Auth::user()->name }}</a></li>
+                     @else
+                         <li><a href="{{ route('login') }}" class="js-smooth-scroll">ログイン</a></li>
+                     @if (Route::has('register'))
+                         <li><a href="{{ route('register') }}" class="js-smooth-scroll">新規登録</a></li>
+                     @endif
+                     @endauth
+                 </ul>
+                 @endif
+            </nav>
         </header>
 
 
@@ -191,46 +58,117 @@ footer p {
                      › <a href="/">全てのメニュー</a> 
                  </div>
              </div>
+        </div>
 
-             <div class="menu">
-                 <div class="menu-header">
-                    <div class="menu-title">
-                       <p>{{ $menu -> title }}</p>
-                    </div>
-                    <div class="menu-keyword">
-                       @foreach( $menu -> keyword as $keyword)
-                          <li> {{ $keyword }}</li>
-                       @endforeach
-                    </div>
-                 </div>
-                 <div class="menu-container">
-                    <div class="video">
-                       
-                       <?php 
-                          $str = str_replace("https://youtu.be/","",$menu -> youtube_url);
-                          //iframe用のアドレスに変換する
-                          $return_ad = '<iframe width="560" height="315" src="https://www.youtube.com/embed/'.$str.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-                        ?>
-                        <p><?php echo $return_ad ?></p>
-                    </div>
-                    <div class="menu-explain">
-                        <div class="item">
-                           <p>①使用する道具</p>
-                          @if(isset($menu -> item))
-                           <p>{{ $menu -> item }}</p>
-                          @else
-                            <p>※道具は使用しません</p>
+             <div class="menu_detail">
+                  <div class="menu_header">
+                         <div class="menu_title">
+                            <p>{{ $menu -> title }}</p>
+                         </div>
+                         <div class="favorite_form">
+                             @if(isset($favorite))
+                                  @if( $favorite -> user_id == Auth::user()->id && $favorite -> menu_id == $menu -> id)
+                                    <ul class="favorite_form_list">
+                                     <form method="post">
+                                        @csrf
+                                          <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                          <input type="hidden" name="menu_id" value="{{ $menu -> id }}">
+                                          <li><input type="submit" value="お気に入りから外す"></li>
+                                     </form>
+                                          <li>※登録済み</li>
+                                    </ul>
+                                  @else
+                                    <ul class="favorite_form_list">
+                                     <form method="post">
+                                        @csrf
+                                          <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                          <input type="hidden" name="menu_id" value="{{ $menu -> id }}">
+                                          <li><input type="submit" value="お気に入りに追加"></li>
+                                     </form> 
+                                    </ul>
+                                  @endif
+                             @elseif( !isset($favorite) )
+                                 <ul class="favorite_form_list">
+                                  <form method="post">
+                                     @csrf
+                                       <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                       <input type="hidden" name="menu_id" value="{{ $menu -> id }}">
+                                       <li><input type="submit" value="お気に入りに追加"></li>
+                                  </form>
+                                 </ul>
+                             @endif
+                         </div>
+                  </div>  
+                  <div class="menu_keyword_area">
+                  <ul class="menu_keyword">
+                           <li class="key">対象疾患：</li>
+                         @if(isset($menu -> disease))
+                         @foreach($menu -> disease as $disease )
+                           <li class="key">{{ $disease }}</li>
+                           <li class="keycutbar">/</li>
+                         @endforeach
+                         @endif
+                     </ul>
+                     <ul class="menu_keyword">
+                           <li class="key">キーワード：</li>
+                        @if(isset($menu -> keyword))
+                         @foreach($menu -> keyword as $keyword )
+                           <li class="key">{{ $keyword }}</li>
+                           <li class="keycutbar">/</li>
+                         @endforeach
+                         @endif
+                     </ul>
+                  </div>
+                  <div class="video_and_explain">
+                       <div class="video">
+                          @if(isset($menu -> youtube_url))
+                           <?php 
+                             $str = str_replace("https://youtu.be/","",$menu -> youtube_url);
+                             //iframe用のアドレスに変換する
+                             $return_ad = '<iframe width="560" height="315" src="https://www.youtube.com/embed/'.$str.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                           ?>
+                           <p><?php echo $return_ad ?></p>
+                          @elseif(isset($menu -> video_path))
+                           <video controls poster="" id="video" width="560" height="315" type="video/mp4">
+                           　　<source src="{{ asset('storage/menu_video/'.$menu -> video_path) }}"　type="video/mp4">
+                              <p>このブラウザでは動画を再生することができません。最新版のブラウザをご利用ください。</p>
+                           </video>
+                           <!-- 自動再生バージョン
+                           <video controls　autoplay loop muted poster="" playsinline  width="560" height="315"　type="video/mp4">
+	                           <source src="{{ asset('storage/menu_video/'.$menu -> video_path) }}">
+                               <p>このブラウザでは動画を再生することができません。最新版のブラウザをご利用ください。</p>
+                           </video>
+                           -->
                           @endif
-                        </div>
-                        <div class="method">
-                           <p>②方法</p>
-                           <p>{{ $menu -> method }}</p>
-                        </div>
-                    </div>
-                 </div>
+                       </div>
+     
+                       <div class="menu-explain">
+                           <div class="item_area">
+                             <div class="item_title">
+                              <p>使用する道具</p>
+                             </div>
+                             @if(isset($menu -> item))
+                             <div class="item">
+                              <p>{{ $menu -> item }}</p>
+                             </div>
+                             @else
+                             <div class="item">
+                               <p>※道具は使用しません</p>
+                             </div>
+                             @endif
+                           </div>
+                           <div class="method_area">
+                             <div class="method_title">
+                              <p>方法</p>
+                             </div>
+                             <div class="method">
+                              <p>{{ $menu -> method }}</p>
+                             </div>
+                           </div>
+                       </div>
+                  </div>
              </div>
 
-        </div>
         
 
         

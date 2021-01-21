@@ -21,15 +21,15 @@ class Favorite extends Model
     ]; 
 
 
-    //Userクラスとリレーション定義
-    public function users()
-    {
-       return $this->belongsTo(Menu::class);
-    }
-
-    //Menuクラスとリレーション定義
-    public function menus()
-    {
-       return $this->belongsTo(Menu::class);
-    }
+    ////Userクラスとリレーション定義
+    //public function users()
+    //{
+    //   return $this->belongsToMany(User::class);
+    //}
+//
+    ////Menuクラスとリレーション定義
+    //public function menus()
+    //{
+    //   return $this->belongsToMany(Menu::class);
+    //}
 }

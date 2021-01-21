@@ -7,6 +7,7 @@
 html {
     height: 100%;
     width:100%;
+
 }
 
 body {
@@ -31,21 +32,14 @@ ul {
     list-style: none;
 }
 
-.container {
-    max-width: 1170px;
-    width: 80%;
-    margin: 0 auto;
-    padding: 50px 0;
-}
-
-
 
 
 /* header
 --------------------*/
 header {
-    height: 180px;
+    height: 50px;
     width: 100%;
+    border-bottom: thin solid gray;
 }
 
 .header-left {
@@ -53,23 +47,23 @@ header {
     float: left;
 }
 
-.header-left img {
-    width: 250px;
-}
-
 
 /* navi
 --------------------*/
 
-nav {
+.headerarea{
     height: 15px;
-    margin: 80px auto 0 auto;
-    position: relative;
+    margin: 40px auto 0 auto;
 }
 
-nav ul {
-    margin-left: auto;
-    float: right;
+.header-left{
+  margin-right: auto;
+  float: left;
+}
+
+.header-right{
+  margin-left: auto;
+  float: right;
 }
 
 nav li {
@@ -83,10 +77,6 @@ nav li:hover {
     opacity: 1;
 }
 
-#navi {
-    display: none;
-}
-
 
 
 
@@ -94,9 +84,9 @@ nav li:hover {
 --------------------*/
 
 .top-area {
-    background-image: url("https://thumb.photo-ac.com/88/88ddddea8d503541fd08adf08c69d3fa_t.jpeg");
+    background-image: url("https://publicdomainq.net/images/201708/13s/publicdomainq-0012189rgh.jpg");
     background-size: cover;
-    height:600px;
+    height:700px;
     width: 100%;
 }
 
@@ -126,26 +116,50 @@ nav li:hover {
 --------------------*/
 
 .contents {
-    margin-top: 50px;
+    margin-top: 30px;
+    margin-right: 20px;
     display:flex;
 }
 
-.contents h1 {
-    text-align: center;
+.contents h2 {
     color:#4F4B4B;
-    font-size: 30px;
-    font-family: 'Gurmukhi MN',sans-serif;
+    font-size: 25px;
+    margin-left:20px;
 }
 
 
 
-/* contents(ジャンル検索)
+/* contents
 --------------------*/
-.menu{
+.area{
     margin-top:10px;
-    margin-right:100px;
+    margin-right:10px;
     margin-bottom:10px;
     margin-left:10px;
+}
+
+.search-genre__title{
+    border-left: thick solid rgb(73, 72, 72);
+}
+
+.search-genre__title span{
+    margin-left:10px;
+}
+
+.keywordform{
+  margin-left:20px;
+}
+
+.keywordbox{
+  width:500px;
+  height:40px;
+  font-size:15px;
+}
+
+.kewordbtn{
+  width:70px;
+  height:40px;
+  font-size:20px;
 }
 
 .top-genre__img{
@@ -183,27 +197,23 @@ nav li:hover {
 /* contents(新規登録へ)
 --------------------*/
 .user-info-container{
-    width:100%;
-    margin: 30px;
+    text-align: center;
+    background-color: rgb(245, 217, 184);
+    margin-left:80px;
+    margin-right:60px;
+    height: 320px;
 }
 
-
-.top-container{
-    text-align: center;
-    width: 50%;
-    padding: 30px;
-    background-color: oldlace;
+.top_container_title{
+    margin-top: 30px;
 }
 
 .explain-login{
-    display: inline-block;
-    text-align: center;
-    margin: 8px 0;
-    color: gray;
-    font-size: 12px;
-    width:70%;
+    margin-top:50px;
+    margin-right:50px;
+    margin-bottom:50px;
+    margin-left:50px;
 }
-
 
 .sign-up-box .link-btn{
     padding: 1em 2em;
@@ -219,136 +229,339 @@ nav li:hover {
 
 /* contents(マイプロフィール欄)
 --------------------*/
+
 .user-info-containers{
-    width:100%;
-    margin: 30px;
-}
-
-
-.top-containers{
+    background-color: rgb(245, 217, 184);
+    margin: 100px;
     text-align: center;
-    width: 80%;
-    padding: 30px;
-    background-color: oldlace;
+    height: 370px;
 }
 
-.profile_list{
-    margin: 8px 0;
-    color: gray;
-    font-size: 18px;
-    width:70%;
+.user_information{
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 40px;
+    margin-left: 10px;
 }
 
-.profile_list li{
-    margin: 30px;
+.user_name{
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-bottom: 50px;
 }
 
 
-
-.vision-area {
+.user_profile_list{
+    border-top: thin solid gray;
+    border-bottom: thin solid gray;
     margin-top: 50px;
-    text-align: center;
-    color: #4F4B4B;
-    height: 380px;
+    margin-bottom: 50px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
-.visions {
-    width: 33%;
-    float: left;
-}
-
-.visions img {
-    width:60%;
-}
-
-.vision-icon p {
-    font-weight: bold;
-    font-size: 30px;
-}
-
-.text-contents {
-    width: 80%;
-    display: inline-block;
+.user_profile_list li{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-bottom: thin solid gray;
 }
 
 
-
-
-.mandatory {
-    color: white;
+.sign-up-boxs .link-btns{
+    padding: 1em 2em;
+    border: solid 1px #0f9ada;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+    background: #03A9F4;
+    color: #FFF;
     font-size: 12px;
-    background-color: red;
-    padding: 3px 3px;
-    margin-left: 5px;
-}
-.alertarea {
-    color: red;
-    background-color: #fee;
-    background-image: url("img/alerticon.png");
-    background-repeat: no-repeat;
-    background-position: 0.35em center;
-    display: inline-block;
-    border-radius: 0.5em;
-    margin-left: 0.5em;
-    padding:1px 0.5em 1px 32px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.2);
 }
 
-.alertarea:empty {
+
+/* contents(検索結果)serch_menu
+--------------------*/
+
+.warapper{
+    text-align: center
+}
+
+.directory-list{
+    font-size:15px;
+}
+
+.directory-list a{
+    color:blue;
+}
+
+
+.searched_result{
+    margin:30px;
+}
+
+.result_title{
+    font-size:25px;
+    font-weight:bold;
+}
+
+.result_count{
+    margin-left:20px;
+}
+
+
+/* contents(メニュー一覧)serch_menu
+--------------------*/
+
+.menu_area{
+    width:70%;
+    display:inline-block;
+}
+
+.menu_list{
+    border-top: medium solid gray;
+    box-sizing: border-box;
+}
+
+.titlebar{
+    vertical-align: middle;
+    border-bottom: thin solid gray;
+    display:flex;
+    align-items:center;
+}
+
+.title{
+    margin: 4px 8px 4px 8px;
+}
+
+.title a{
+    color:blue;
+    font-size:18px;
+    
+}
+
+.keyword{
+    text-align:center;
+    display:flex;
+}
+
+.key{
+    margin: 4px 8px 4px 0;
+    padding: 3px 16px;
+    border: solid 1px lightgray;
+    border-radius: 4px;
+    box-shadow: 0 0 4px lightgrey;
+    color: #424242;
+    font-size: 14px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.keycutbar{
+    margin: 4px 8px 4px 0;
+}
+
+.method_contents{
+    margin: 4px 8px 4px 0;
+    background-color:oldlace;
+}
+
+/* contents(メニュー詳細)menu_detail
+--------------------*/
+.menu_detail{
+    margin-left:60px;
+    margin-right:60px;
+}
+
+.menu_header{
+    border-top: medium solid gray;
+    box-sizing: border-box;
+    border-bottom: thin solid gray;
+    display:flex;
+}
+
+.menu_title{
+    color:blue;
+    font-size:24px;
+    margin-right:400px; 
+}
+
+.favorite_form{
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-left:400px;
+}
+
+.favorite_form_list{
+    display:flex;
+}
+
+
+.menu_keyword{
+    text-align:center;
+    display:flex;
+}
+
+.video_and_explain{
+    display:flex;
+}
+
+.video{
+    height: 500px;
+    width:620px;
+}
+
+.menu-explain{
+    height:500px;
+    width:650px;
+}
+
+.item_area{
+}
+
+.item_title{
+    font-family:"Calibre",sans-serif;
+    font-size:25px;
+    font-weight:170px;
+    border-left: thick solid rgb(73, 72, 72);
+}
+
+.item_title p{
+    margin: 8px;
+    color:rgb(43, 42, 42);
+}
+
+.item{
+    margin-left:40px;
+    margin-right:30px;
+    font-size:17px; 
+}
+
+.method_area{
+       
+}
+
+.method_title{
+    font-family:"Calibre",sans-serif;
+    font-size:25px; 
+    font-weight:170px;
+    border-left: thick solid rgb(73, 72, 72); 
+}
+
+.method_title p{
+    margin: 8px;
+    color:rgb(43, 42, 42);
+}
+
+.method{
+    margin-left:40px;
+    margin-right:30px; 
+    font-size:17px;   
+}
+
+
+/* contents(メニュー投稿)
+--------------------*/
+.menu_post{
+    margin-top:10px;
+    margin-right:10px;
+    margin-bottom:10px;
+    margin-left:10px;
+}
+
+/* メニュー投稿フォーム  post_menu
+ */
+.menu_form{
+    width:80%;
+    background-color:red;
+    margin-left:20px;
+    margin-right:20px;
+}
+
+/* チェックボックス03 */
+input[type=checkbox] {
     display: none;
 }
-
-
-.page_top{
-    width: 100px;
-    height: 60px;
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    background: #4F4B4B;
-    opacity: 0.6;
-}
-  
-.page_top a{
+.checkbox03 {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 30px;
     position: relative;
+    width: auto;
+}
+.checkbox03::before {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    content: '';
     display: block;
-    width: 100px;
-    height: 60px;
-    text-decoration: none;
+    height: 16px;
+    left: 5px;
+    margin-top: -8px;
+    position: absolute;
+    top: 50%;
+    width: 16px;
+}
+.checkbox03::after {
+    border-right: 6px solid #fedd1e;
+    border-bottom: 3px solid #fedd1e;
+    content: '';
+    display: block;
+    height: 20px;
+    left: 7px;
+    margin-top: -16px;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    transform: rotate(45deg) translate3d(0,2px,0) scale3d(.7,.7,1);
+    transition: transform .2s ease-in-out, opacity .2s ease-in-out;
+    width: 9px;
+}
+input[type=checkbox]:checked + .checkbox03::before {
+    border-color: #666;
+}
+input[type=checkbox]:checked + .checkbox03::after {
+    opacity: 1;
+    transform: rotate(45deg) scale3d(1,1,1);
 }
 
-.page_top a::before{
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    content: '\f102';
-    font-size: 25px;
-    color: #fff;
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    top: -25px;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    margin: auto;
-    text-align: center;
+
+
+/*　マイページ */
+
+.contents-wraps{
+   background-color: #03A9F4;
+   padding: 30px;   
 }
 
-.page_top a::after{
-    content: 'PAGE TOP';
-    font-size: 13px;
-    color: #fff;
-    position: absolute;
-    top: 30px;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    margin: auto;
-    text-align: center;
+.content-wrap{
+   background-color: #fedd1e; 
+   margin: 70px;
+   text-align: center;
 }
+
+.user-nav-bar{
+    display: flex;
+    margin-left: 30px;
+}
+
+.user-nav{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: 80px;
+    margin-left: 80px;
+}
+
+.menu_area_title{
+    font-size:large;
+}
+
 
 footer {
     width: 80%;
     margin: 0 auto;
+    text-align: center;
 }
   
 footer img {

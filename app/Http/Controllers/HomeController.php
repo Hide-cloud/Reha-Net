@@ -38,6 +38,12 @@ class HomeController extends Controller
         return view('post_menu');
     }
 
+    //メニュー投稿ページへ(自作動画バージョン)
+    public function show_post_menu_myvideo()
+    {
+        return view('post_menu_myvideo');
+    }
+
     //マイページへ
     public function show_mypage($id)
     {
@@ -72,11 +78,13 @@ class HomeController extends Controller
 
         $user =User::find($id);
 
-        //お気に入り登録済みかどうかを確認するため
-        $favorites = Favorite::where('user_id',$id)->get();
-
-        //withメソッドで値をviewへ返す
-        return view('mypage.favorite',['user' => $user],['favorites' => $favorites]);
+        ////お気に入り登録済みかどうかを確認するため
+        //$favorite_menu = Favorite::where('user_id',$id)->menus->get();
+//
+        $favorite_menu = User::find($id)->menus;
+//
+        ////withメソッドで値をviewへ返す
+        return view('mypage.favorite',['user' => $user])->with(['favorite_menu' => $favorite_menu]);
     }
 
 }

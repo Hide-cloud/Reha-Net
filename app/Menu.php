@@ -18,7 +18,7 @@ class Menu extends Model
     //可変項目(変わる項目)
     protected $fillable =
     [
-        'user_id', 'title', 'keyword', 'item', 'method', 'youtube_url'
+        'user_id', 'title', 'disease', 'keyword', 'item', 'method', 'youtube_url'
     ]; 
 
     /**
@@ -32,6 +32,7 @@ class Menu extends Model
 
 
     protected $casts = [
+        'disease' => 'array',
         'keyword' => 'array',
     ];
 
@@ -39,7 +40,6 @@ class Menu extends Model
     public function favorites(){
         return $this->hasMany(Favorite::class);
     }
-
     //Menuモデルからuserを唱えるとユーザーにアクセスできる
     public function user(){
         return $this->belongsTo(User::class);

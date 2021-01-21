@@ -29,7 +29,7 @@
                 <ul class="header-left">
                    <!-- Authentication Links -->
                     <li>
-                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ route('home') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Reha_Net</a>
+                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Reha_Net</a>
                     </li>
                 </ul>
 
@@ -64,12 +64,12 @@
         <div class="contents">
             <div class="area">
               <div class="menu_post">
-               <h1>メニューを作る(YouTubeを投稿する)</h1>
+               <h1>メニューを作る(自分で動画を投稿する)</h1>
                    <div class="menu_form">
                        <form method="post" enctype="multipart/form-data">
                          @csrf
                            <div class="moveMyvideo">
-                                <button><a href="/post_menu/myvideo">※自分で動画を投稿する場合はこちらへ</a></button>
+                                <button><a href="/post_menu">※YouTubeの動画を投稿する場合はこちらへ</a></button>
                            </div>
                            <div class="form_title">
                               <p>メニュータイトル：</p>
@@ -79,7 +79,7 @@
                            <div class="disease">
                               <!--チェックボックス03-->
                               <p>対象疾患(複数選択可)：</p>
-                                <input type="checkbox" id="03-A" name="disease[]" value="脳血管障害">
+                                <input type="checkbox" id="03-A" name="disease[]" checked="checked" value="脳血管障害">
                                    <label for="03-A" class="checkbox03">脳血管障害</label>
                                 <input type="checkbox" id="03-B" name="disease[]" value="骨折">
                                     <label for="03-B" class="checkbox03">骨折</label>
@@ -93,8 +93,8 @@
                                     <label for="03-F" class="checkbox03">リウマチ</label>
                                 <input type="checkbox" id="03-G" name="disease[]" value="パーキンソン病">
                                    <label for="03-G" class="checkbox03">パーキンソン病</label>
-                                <input type="checkbox" id="03-H" name="disease[]" value="神経疾患">
-                                   <label for="03-H" class="checkbox03">神経疾患</label>
+                                <input type="checkbox" id="03-G" name="disease[]" value="神経疾患">
+                                   <label for="03-G" class="checkbox03">神経疾患</label>
                            </div>
 
                            <div class="keyword">
@@ -128,15 +128,12 @@
                               <textarea type="text" placeholder="" name="method"></textarea>
                            </div>
                            <div class="video_area">
-                              <!-- <p>参考動画(自分で作成した動画)：</p>    -->
-                              <!-- <input type="file" name="video[]">  -->          
-                              <!-- <p>&nbsp;</p>                       -->
-
-                              <p>参考動画(YouTubeよりURL)：</p>
-                              <input type="text" placeholder="" name="youtube_url">
+                               <p>参考動画(自分で作成した動画)：</p>    
+                               <input type="file" name="video_path">        
+                               <p>&nbsp;</p>                       
                            </div>
                            
-                           <div class="menu_post_btn">
+                           <div class="post_btn">
                               <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                               <input type="submit" value="作成する">
                            </div>

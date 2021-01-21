@@ -14,160 +14,48 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/top.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="responsive.css" />
 
-        <style>
-          html {
-    height: 100%;
-    width:100%;
-}
-
-body {
-    height : 100%;   
-    margin : 0;
-}
-
-a {
-    text-decoration:none;
-}
-    
-a:link {
-    color:#000000;
-}
-    
-a:visited {
-    color:#000000;
-}
-
-
-ul {
-    list-style: none;
-}
-
-.container {
-    max-width: 1170px;
-    width: 80%;
-    margin: 0 auto;
-    padding: 50px 0;
-}
-
-
-
-
-/* header
---------------------*/
-header {
-    height: 180px;
-    width: 100%;
-}
-
-.header-left {
-    margin-left: 50px; 
-    float: left;
-}
-
-.header-left img {
-    width: 250px;
-}
-
-
-/* navi
---------------------*/
-
-nav {
-    height: 15px;
-    margin: 80px auto 0 auto;
-    position: relative;
-}
-
-nav ul {
-    margin-left: auto;
-    float: right;
-}
-
-nav li {
-    margin-right: 50px;
-    opacity: 0.6;
-    font-weight: bold;
-    float: left;
-}
-
-nav li:hover {
-    opacity: 1;
-}
-
-#navi {
-    display: none;
-}
-
-
-/* contents
---------------------*/
-.warapper{
-    text-align: center
-}
-
-.directory-list{
-    font-size:13px;
-}
-
-.directory-list a{
-    color:blue;
-}
-
-
-footer {
-    width: 80%;
-    margin: 0 auto;
-}
-  
-footer img {
-    width: 125px;
-}
-
-footer p {
-    color: #b3aeb5;
-    font-size: 12px;
-}
-        </style>
+        
     </head>
 
      <body>
         <!-- header -->
         <header>
-            <div class="container" id="top">
-                <div class="header-left">
-                    <div class="header-left">
-                        <p>Reha-Net</p>
-                      </div>
-                </div>
-                
-                <!-- navi -->
-                <nav class="flex-center position-ref full-height">
+            <!-- navi -->
+            <nav class="headerarea">
 
-                  <ul class="top-right links">
-                     <!-- Authentication Links -->
-                      <li>
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>メニューを探す</a>
-                      </li>
-                      <li>
+                <ul class="header-left">
+                   <!-- Authentication Links -->
+                    <li>
+                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ route('home') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Reha_Net</a>
+                    </li>
+                </ul>
+
+
+                <ul class="header-right">
+                   <!-- Authentication Links -->
+                    <li>
                       <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/post_menu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>メニューを作る</a>
-                      </li>
-                      <li>
-                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
+                    </li>
+                    <li>
+                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/mypage/{{ Auth::user()->id }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>マイページへ</a>
+                    </li>
+                    <li>
+                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                              {{ __('Logout') }}
+                          </a>
+                
+                          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                              @csrf
+                          </form>
+                        </div>
+                    </li>
+                </ul>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                          </div>
-                      </li>
-                  </ul>
-
-                </nav>
+            </nav>
         
         </header>
 
@@ -180,7 +68,7 @@ footer p {
                      › <i>{{ $user -> name }}さんのマイページ</i> 
                  </div>
              </div>
-             <div class="">
+             <div class="contents-wraps">
                <div class="content-wrap">
                    <div class='user-name'>
                       <p>{{ $user -> name }}さん のマイページ</p>
@@ -189,17 +77,48 @@ footer p {
                        <li class="user-nav first-nav">
                          <a class="user-nav-link" href="/mypage/{{ $user -> id }}"><span class="user-nav-name">トップ</span></a>
                        </li>
+                       <li class="user-nav">|</li>
                        <li class="user-nav">
                           <a class="user-nav-link" href="/mypage/{{ $user -> id }}/posted_menu"><span class="user-nav-name">投稿したメニュー</span></a>
                        </li>
+                       <li class="user-nav">|</li>
                        <li class="user-nav">
                           <a class="user-nav-link" href="/mypage/{{ $user -> id }}/favorite"><span class="user-nav-name">お気に入り登録済み</span></a>
                        </li>
-                       <li class="user-nav">
-                          <a class="user-nav-link" href=""><span class="user-nav-name">編集</span></a>
-                       </li>
                     </ul>
                </div>
+             </div>
+             <div class="menu_area">
+               <div class="menu_area_title">
+                 <p>｜投稿したメニュー｜</p>
+               </div>
+                @if(isset($posted_menus))
+                   @foreach($posted_menus as $posted_menu)
+                       <div class="menu_list">
+                            <div class="titlebar">
+                                <div class="title">
+                                   <a href="/menu/{{ $posted_menu -> id }}">{{ $posted_menu -> title }}</a>
+                                </div>
+                                <ul class="keyword">
+                                    <li class="key">キーワード：</li>
+                                  @foreach($posted_menu -> keyword as $keyword )
+                                    <li class="key">{{ $keyword }}</li>
+                                    <li class="keycutbar">/</li>
+                                  @endforeach
+                                </ul>
+                             </div>
+                             <div class="method">
+                               <ul class="keyword">
+                                  <li class="key">方法：</li>
+                                  <li class="method_contents">{{ $posted_menu -> method }}</li>
+                               </ul>
+                             </div>
+                       </div>
+                   @endforeach
+                @elseif(empty($serch_menus))
+                  <p>まだ"{{ $serch_menu }}"に関するメニューの投稿がありません</p>
+                @endif
+                   
              </div>
         </div>
         

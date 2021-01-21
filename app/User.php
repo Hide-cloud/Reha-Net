@@ -42,6 +42,11 @@ class User extends Authenticatable
         return $this->hasMany(Menu::class);
     }
 
+    ////リレーション定義
+    //public function menus(){
+    //    return $this->belongsToMany(Menu::class);
+    //}
+
     //public function favorites(){
     //    return $this->hasMany(Favorite::class);
     //}

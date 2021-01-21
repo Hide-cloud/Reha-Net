@@ -48,11 +48,17 @@ Route::prefix('therapist')->namespace('Therapist')->name('therapist.')->group(fu
     Route::get('/home', 'TherapistHomeController@index')->name('therapist_home');
 });
 
-//メニュー作成ページを表示
+//メニュー作成ページを表示(youtubeバージョン)
 Route::get('/post_menu', 'HomeController@show_post_menu')->name('show_post_menu');
 
-//メニューを作成
+//メニュー作成ページを表示(自作動画バージョン)
+Route::get('/post_menu/myvideo', 'HomeController@show_post_menu_myvideo')->name('show_post_menu_myvideo');
+
+//メニューを作成(youtubeバージョン)
 Route::post('/post_menu', 'MenuController@post_menu')->name('post_menu');
+
+//メニューを作成(自作動画バージョン)
+Route::post('/post_menu/myvideo', 'MenuController@post_menu_myvideo')->name('post_menu_myvideo');
 
 
 //マイページを表示
