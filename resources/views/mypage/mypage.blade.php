@@ -65,13 +65,13 @@
              <div class="directory">
                  <div class="directory-list">
                      <a href="/"><i class="fas fa-home"></i>Reha-Net</a> 
-                     › <i>{{ $user -> name }}さんのマイページ</i> 
+                     › <i>{{ Auth::user()->name }}さんのマイページ</i> 
                  </div>
              </div>
              <div class="contents-wraps">
                <div class="content-wrap">
                    <div class='user-name'>
-                      <p>{{ $user -> name }}さん のマイページ</p>
+                      <p>{{ Auth::user()->name }}さん のマイページ</p>
                    </div>
                    <div class="user-nav-list">
                       <ul class="user-nav-bar">
@@ -90,11 +90,77 @@
                    </div>
                </div>
              </div>
-             <div class="menu_area">
-               <div class="menu_area_title">
-                 <p>｜トップ｜</p>
-               </div>
-                
+             <div class="profile_top_area">
+                  <div class="profile_top_title">
+                    <p>｜登録情報｜</p>
+                  </div>
+                  <div class="user_register_information">
+                      <div class="information_area">
+                           <div class="icon_area">
+                               <div class="icon_title">
+                                   <p>プロフィール画像</p>
+                               </div>
+                               <div class="user_email">
+                                   <p>{{ Auth::user()->email }}</p>
+                               </div>
+                           </div>
+                           <div class="user_name_area">
+                               <div class="user_name_title">
+                                   <p>ユーザー名</p>
+                               </div>
+                               <div class="user_name">
+                                   <p>{{ Auth::user()->name }}</p>
+                               </div>
+                           </div>
+                           <div class="user_email_area">
+                               <div class="user_email_title">
+                                   <p>メールアドレス</p>
+                               </div>
+                               <div class="user_email">
+                                   <p>{{ Auth::user()->email }}</p>
+                               </div>
+                           </div>
+                       </div>  
+                  </div>
+                  <div class="menu_area_title">
+                    <p>｜登録情報を変更する｜</p>
+                  </div>
+                  <form method="post">
+                    @csrf
+                      <div class="user_register_information">
+                          <div class="information_area">
+                               <div class="user_name_area">
+                                   <div class="user_name_title">
+                                       <p>新しいユーザー名</p>
+                                   </div>
+                                   <div class="user_name">
+                                       <input type="text" name="name">
+                                   </div>
+                               </div>
+                               <div class="user_email_area">
+                                   <div class="user_email_title">
+                                       <p>新しいメールアドレス</p>
+                                   </div>
+                                   <div class="user_email">
+                                        <input type="text" name="email">
+                                   </div>
+                               </div>
+                               <div class="user_password_area">
+                                   <div class="user_password_title">
+                                       <p>新しいパスワード</p>
+                                   </div>
+                                   <div class="user_password">
+                                       <input type="text" name="password">
+                                   </div>
+                               </div>
+                               <div class="submit_area">
+                                  <div class="change_submit">
+                                    <input type="submit" value="変更">
+                                  </div>
+                               </div>
+                           </div>  
+                      </div>
+                   </form>
                    
              </div>
         </div>

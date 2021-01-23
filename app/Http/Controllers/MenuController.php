@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Menu;
 use App\Favorite;
+use Auth;
 
 class MenuController extends Controller
 {
@@ -76,8 +77,9 @@ class MenuController extends Controller
 
         //投稿者情報を取得
         $contributor = Menu::find($id)->user->name;
-        //お気に入り登録済みかどうかを確認するため
-        $favorite = Favorite::where('menu_id',$id)->first();
+
+        //お気に入りテーブルから持ってくる(登録済みの場合も未登録の場合も)
+        $favorite = Favorite::where('menu_id',$id)->where('menu_id',Auth::user()->id)->first();
 
         //withメソッドで値をviewへ返す
         return view('menu_detail',['menu' => $menu],['favorite' => $favorite])->with('contributor',$contributor);

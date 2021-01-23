@@ -78,7 +78,7 @@
                          </div>
                          <div class="favorite_form">
                              @if(isset($favorite))
-                                  @if( $favorite -> user_id == Auth::user()->id && $favorite -> menu_id == $menu -> id)
+                                    
                                     <ul class="favorite_form_list">
                                      <form method="post">
                                         @csrf
@@ -89,18 +89,8 @@
                                           <li>※登録済み</li>
                                           <li><i class="fa fa-bookmark"></i> </li>
                                     </ul>
-                                  @else
-                                    <ul class="favorite_form_list">
-                                     <form method="post">
-                                        @csrf
-                                          <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                          <input type="hidden" name="menu_id" value="{{ $menu -> id }}">
-                                          <li><input type="submit" value="お気に入りに追加"></li>
-                                     </form> 
-                                      <li><i class="fa fa-bookmark-o"></i></li>
-                                    </ul>
-                                  @endif
-                             @elseif( !isset($favorite) )
+                                  
+                             @elseif(!isset($favorite))
                                  <ul class="favorite_form_list">
                                   <form method="post">
                                      @csrf
@@ -111,6 +101,7 @@
                                   <li><i class="fa fa-bookmark-o"></i></li>
                                  </ul>
                              @endif
+                             <p><?php echo $favorite ?></p>
                          </div>
                   </div>  
                   <div class="menu_keyword_area">
