@@ -37,11 +37,22 @@ class Menu extends Model
     ];
 
     
-    public function favorites(){
-        return $this->hasMany(Favorite::class);
-    }
+    //public function favorites(){
+    //    return $this->hasMany(Favorite::class);
+    //}
     //Menuモデルからuserを唱えるとユーザーにアクセスできる
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+
+    //
+    public function favorites()
+    {
+        return $this->hasMany(Favorite::class);
+    }
+
+
+
+
 }

@@ -81,10 +81,6 @@
                        <li class="user-nav">
                           <a class="user-nav-link" href="/mypage/{{ $user -> id }}/posted_menu"><span class="user-nav-name">投稿したメニュー</span></a>
                        </li>
-                       <li class="user-nav">|</li>
-                       <li class="user-nav">
-                          <a class="user-nav-link" href="/mypage/{{ $user -> id }}/favorite"><span class="user-nav-name">お気に入り登録済み</span></a>
-                       </li>
                     </ul>
                </div>
              </div>

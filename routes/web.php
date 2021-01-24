@@ -39,6 +39,14 @@ Route::post('/menu/{id}', 'FavoriteController@register_favorite')->name('favorit
 //メニュー詳細ページへ遷移(nonlog)
 Route::get('/nonlog/menu/{id}', 'MenuController@show_menu_detail_nonlog')->name('show_detail_nonlog');
 
+
+//メニュー詳細ページから投稿者個別ページへ遷移
+Route::get('/userprofile/{id}', 'HomeController@show_userprofile')->name('show_userprofile');
+
+//投稿者個別ページから投稿一覧へ遷移
+Route::get('/userprofile/{id}/posted_menu', 'HomeController@show_userprofile_postedMenu')->name('show_userprofile_postedMenu');
+
+
 //Route::prefix('therapist')->group(function(){
 //    Auth::routes();
 //});

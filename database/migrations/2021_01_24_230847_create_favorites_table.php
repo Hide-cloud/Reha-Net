@@ -17,6 +17,13 @@ class CreateFavoritesTable extends Migration
             $table->id();
             $table->string('user_id');
             $table->string('menu_id');
+            $table->string('title');
+            $table->string('disease')->nullable();
+            $table->string('keyword')->nullable();
+            $table->string('item')->nullable();
+            $table->string('method');
+            $table->string('youtube_url')->nullable();
+            $table->string('video_path')->nullable();
             $table->timestamps();
         });
     }
@@ -31,3 +38,4 @@ class CreateFavoritesTable extends Migration
         Schema::dropIfExists('favorites');
     }
 }
+

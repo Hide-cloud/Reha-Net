@@ -76,12 +76,13 @@ class MenuController extends Controller
         $menu =Menu::find($id);
 
         //投稿者情報を取得
-        $contributor = Menu::find($id)->user->name;
+        $contributor_name = Menu::find($id)->user->name;
+        $contributor_id = Menu::find($id)->user->id;
 
         //お気に入りテーブルから持ってくる(登録済みの場合も未登録の場合も)
-        $favorite = Favorite::where('menu_id',$id)->where('menu_id',Auth::user()->id)->first();
+        $favorite = Favorite::where('menu_id',$id)->where('user_id',Auth::user()->id)->first();
 
         //withメソッドで値をviewへ返す
-        return view('menu_detail',['menu' => $menu],['favorite' => $favorite])->with('contributor',$contributor);
+        return view('menu_detail',['menu' => $menu],['favorite' => $favorite])->with('contributor_name',$contributor_name)->with('contributor_id',$contributor_id);
     }
 }

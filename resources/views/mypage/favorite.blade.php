@@ -75,7 +75,7 @@
                    </div>
                    <ul class="user-nav-bar">
                        <li class="user-nav first-nav">
-                         <a class="user-nav-link" href="/mypage/{{ $user -> id }}"><span class="user-nav-name">トップ</span></a>
+                         <a class="user-nav-link" href="/mypage/{{ $user -> id }}"><span class="user-nav-name">登録情報</span></a>
                        </li>
                        <li class="user-nav">|</li>
                        <li class="user-nav">
@@ -89,16 +89,19 @@
                </div>
              </div>
              <div class="menu_area">
-                @if(isset($serch_menus))
-                   @foreach($serch_menus as $serch_menu)
+                  <div class="profile_top_title">
+                    <p>｜お気に入りメニュー｜</p>
+                  </div>
+                @if(isset($favorite_menus))
+                   @foreach($favorite_menus as $favorite_menu)
                        <div class="menu_list">
                             <div class="titlebar">
                                 <div class="title">
-                                   <a href="/menu/{{ $serch_menu -> id }}">{{ $serch_menu -> title }}</a>
+                                   <a href="/menu/{{ $favorite_menu -> id }}">{{ $favorite_menu -> title }}</a>
                                 </div>
                                 <ul class="keyword">
                                     <li class="key">キーワード：</li>
-                                  @foreach($serch_menu -> keyword as $keyword )
+                                  @foreach($favorite_menu -> keyword as $keyword )
                                     <li class="key">{{ $keyword }}</li>
                                     <li class="keycutbar">/</li>
                                   @endforeach
@@ -107,12 +110,12 @@
                              <div class="method">
                                <ul class="keyword">
                                   <li class="key">方法：</li>
-                                  <li class="method_contents">{{ $serch_menu -> method }}</li>
+                                  <li class="method_contents">{{ $favorite_menu -> method }}</li>
                                </ul>
                              </div>
                        </div>
                    @endforeach
-                @elseif(!isset($serch_menus))
+                @elseif(!isset($favorite_menus))
                   <p>まだお気に入りメニューがありません</p>
                 @endif
                    

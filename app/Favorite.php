@@ -17,9 +17,16 @@ class Favorite extends Model
     //可変項目(変わる項目)
     protected $fillable =
     [
-        'user_id', 'menu_id'
+        'user_id', 'menu_id','title', 'disease', 'keyword', 'item', 'method', 'youtube_url'
     ]; 
 
+
+    protected $casts = [
+        'disease' => 'array',
+        'keyword' => 'array',
+    ];
+
+    
 
     ////Userクラスとリレーション定義
     //public function users()
@@ -32,4 +39,19 @@ class Favorite extends Model
     //{
     //   return $this->belongsToMany(Menu::class);
     //}
+
+    //
+    //public function user()
+    //{
+    //    return $this->belongsTo(User::class);
+    //}
+
+    
+    
+    
+    
+    public function menus()
+    {
+        return $this->belongsTo(Menu::class);
+    }
 }
