@@ -14,8 +14,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/top.css') }}" rel="stylesheet">
-        <link rel="stylesheet" href="responsive.css" />
+        <link href="{{ asset('css/posted.css') }}" rel="stylesheet">
 
         
     </head>
@@ -78,7 +77,7 @@
                                      </p>
                                  </div>
                                  <div class="row justify-content-center send-to">
-                                     <p><a href="/home" class="send-link">
+                                     <p><a href="/mypage/{{ Auth::user()->id }}" class="send-link">
                                          <i class="fas fa-user big-icon-posts"></i><br>マイページへ</a>
                                      </p>
                                  </div>

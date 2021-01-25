@@ -47,7 +47,8 @@ class MenuController extends Controller
    //メニュー検索して一覧表示へ
     public function serch(Request $request_menu){
         $serch_menu =$request_menu->serch_menu;
-        $serch_menus = Menu::where('title', 'like', "%$serch_menu%")->orWhere('keyword', "$serch_menu")->get();
+        //pagonrtion付き
+        $serch_menus = Menu::where('title', 'like', "%$serch_menu%")->orWhere('keyword', "$serch_menu")->paginate(10);
         
         return view('serch_menu',['serch_menus' => $serch_menus],['serch_menu' => $serch_menu]);
     }

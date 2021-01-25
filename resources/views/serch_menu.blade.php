@@ -14,8 +14,9 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/top.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/serch_menu.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="responsive.css" />
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
         
     </head>
@@ -64,7 +65,7 @@
         <div class="warapper">
              <div class="directory">
                  <div class="directory-list">
-                     <a href="/"><i class="fas fa-home"></i>Reha-Net</a> 
+                     <a href="{{ route('home') }}"><i class="fas fa-home"></i>Reha-Net</a> 
                      › <a href="/">全てのメニュー</a> 
                      › <span>{{ $serch_menu }}　に関するメニュー</span>
                  </div>
@@ -116,6 +117,9 @@
                              </div>
                        </div>
                    @endforeach
+                   <div class="d-flex justify-content-center">
+                        {{ $serch_menus->appends(array('sort' => 'date'))->links('vendor.pagination.sample-pagination') }}
+                   </div>
                 @elseif(empty($serch_menus))
                   <p>まだ"{{ $serch_menu }}"に関するメニューの投稿がありません</p>
                 @endif

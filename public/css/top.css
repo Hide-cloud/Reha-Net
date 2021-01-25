@@ -467,7 +467,6 @@ nav li:hover {
  */
 .menu_form{
     width:80%;
-    background-color:red;
     margin-left:20px;
     margin-right:20px;
 }
@@ -558,6 +557,10 @@ input[type=checkbox]:checked + .checkbox03::after {
     font-size:large;
 }
 
+
+
+/* footer
+--------------------*/
 
 footer {
     width: 80%;

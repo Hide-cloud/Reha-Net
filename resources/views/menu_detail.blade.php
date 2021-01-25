@@ -15,7 +15,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/top.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/menu_detail.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="responsive.css" />
 
         

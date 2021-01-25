@@ -1,0 +1,181 @@
+/* all
+--------------------*/
+
+html {
+    height: 100%;
+    width:100%;
+
+}
+
+body {
+    height : 100%;   
+    margin : 0;
+}
+
+a {
+    text-decoration:none;
+}
+    
+a:link {
+    color:#000000;
+}
+    
+a:visited {
+    color:#000000;
+}
+
+
+ul {
+    list-style: none;
+}
+
+
+
+/* header
+--------------------*/
+header {
+    height: 50px;
+    width: 100%;
+    border-bottom: thin solid gray;
+}
+
+.header-left {
+    margin-left: 50px; 
+    float: left;
+}
+
+
+/* navi
+--------------------*/
+
+.headerarea{
+    height: 15px;
+    margin: 40px auto 0 auto;
+}
+
+.header-left{
+  margin-right: auto;
+  float: left;
+}
+
+.header-right{
+  margin-left: auto;
+  float: right;
+}
+
+nav li {
+    margin-right: 50px;
+    opacity: 0.6;
+    font-weight: bold;
+    float: left;
+}
+
+nav li:hover {
+    opacity: 1;
+}
+
+
+
+/* contents(検索結果)serch_menu
+--------------------*/
+
+.warapper{
+    text-align: center
+}
+
+.directory-list{
+    font-size:15px;
+}
+
+.directory-list a{
+    color:blue;
+}
+
+
+.searched_result{
+    margin:30px;
+}
+
+.result_title{
+    font-size:25px;
+    font-weight:bold;
+}
+
+.result_count{
+    margin-left:20px;
+}
+
+/* contents(メニュー一覧)serch_menu
+--------------------*/
+
+.menu_area{
+    width:70%;
+    display:inline-block;
+}
+
+.menu_list{
+    border-top: medium solid gray;
+    box-sizing: border-box;
+}
+
+.titlebar{
+    vertical-align: middle;
+    border-bottom: thin solid gray;
+    display:flex;
+    align-items:center;
+}
+
+.title{
+    margin: 4px 8px 4px 8px;
+}
+
+.title a{
+    color:blue;
+    font-size:18px;
+    
+}
+
+.keyword{
+    text-align:center;
+    display:flex;
+}
+
+.key{
+    margin: 4px 8px 4px 0;
+    padding: 3px 16px;
+    border: solid 1px lightgray;
+    border-radius: 4px;
+    box-shadow: 0 0 4px lightgrey;
+    color: #424242;
+    font-size: 14px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.keycutbar{
+    margin: 4px 8px 4px 0;
+}
+
+.method_contents{
+    margin: 4px 8px 4px 0;
+    background-color:oldlace;
+}
+
+
+/* footer
+--------------------*/
+
+footer {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+  
+footer img {
+    width: 125px;
+}
+
+footer p {
+    color: #b3aeb5;
+    font-size: 12px;
+}

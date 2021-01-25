@@ -15,7 +15,6 @@
 
         <!-- css -->
         <link href="{{ asset('css/top.css') }}" rel="stylesheet">
-        <link rel="stylesheet" href="responsive.css" />
 
        
     </head>
@@ -115,7 +114,7 @@
                              </div>
                        </div>
                    @endforeach
-                @elseif(!isset($favorite_menus))
+                @elseif(empty($favorite_menus))
                   <p>まだお気に入りメニューがありません</p>
                 @endif
                    
