@@ -15,8 +15,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/menu_details.css') }}" rel="stylesheet">
-        <link rel="stylesheet" href="responsive.css" />
+        <link href="{{ asset('css/mypage/favorite_detail.css') }}" rel="stylesheet">
 
         
     </head>
@@ -66,7 +65,8 @@
              <div class="directory">
                  <div class="directory-list">
                      <a href="{{ route('home') }}"><i class="fas fa-home"></i>Reha-Net</a> 
-                     › <a href="/">全てのメニュー</a> 
+                     › <a href="/mypage/{{ Auth::user()->id }}">マイページ</a>
+                     › <a href="">{{ $menu -> title }}</a> 
                  </div>
              </div>
         </div>
@@ -76,41 +76,44 @@
                          <div class="menu_title">
                             <p>{{ $menu -> title }}</p>
                          </div>
-                         <div class="favorite_form">
-                             @if(isset($favorite))   
-                            
+
+                         <div class="mymenu_form">
+                             @if(isset($mymenu))   
+                                
                                  <form method="post">
                                     @csrf
                                     <ul class="favorite_form_list">
-                                      <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                      <input type="hidden" name="menu_id" value="{{ $menu -> id }}">
-                                      <input type="hidden" name="title" value="{{ $menu -> title }}">
-                                      @if(isset($menu -> disease))
-                                      @foreach($menu -> disease as $disease )
-                                      <input type="hidden" name="disease[]" value="{{ $disease }}">
-                                      @endforeach
-                                      @endif
-                                      @if(isset($menu -> keyword))
-                                      @foreach($menu -> keyword as $keyword )
-                                      <input type="hidden" name="keyword[]" value="{{ $keyword }}">
-                                      @endforeach
-                                      @endif
-                                      <input type="hidden" name="item" value="{{ $menu -> item }}">
-                                      <input type="hidden" name="method" value="{{ $menu -> method }}">
-                                      <input type="hidden" name="youtube_url" value="{{ $menu -> youtube_url }}">
-                                      <input type="hidden" name="video_path" value="{{ $menu -> video_path }}">
-                                      <li><input type="submit" value="お気に入りから外す"></li>
-                                      <li>※登録済み</li>
-                                      <li><i class="fas fa-star"></i></li>
+                                         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                         <input type="hidden" name="favorite_menu_id" value="{{ $menu -> id }}">
+                                         <input type="hidden" name="title" value="{{ $menu -> title }}">
+                                         @if(isset($menu -> disease))
+                                         @foreach($menu -> disease as $disease )
+                                         <input type="hidden" name="disease[]" value="{{ $disease }}">
+                                         @endforeach
+                                         @endif
+                                         @if(isset($menu -> keyword))
+                                         @foreach($menu -> keyword as $keyword )
+                                         <input type="hidden" name="keyword[]" value="{{ $keyword }}">
+                                         @endforeach
+                                         @endif
+                                         <input type="hidden" name="item" value="{{ $menu -> item }}">
+                                         <input type="hidden" name="method" value="{{ $menu -> method }}">
+                                         <input type="hidden" name="youtube_url" value="{{ $menu -> youtube_url }}">
+                                         <input type="hidden" name="video_path" value="{{ $menu -> video_path }}">
+                                         <li><input type="submit" value="リハビリメニューから外す"></li>
+                                    
+                                         <li>※登録済み</li>
+                                         <li><i class="fas fa-running"></i></i> </li>
                                     </ul>
-                                </form>
+                                 </form>
                                   
-                             @elseif(!isset($favorite))
-                                <form method="post">
-                                  @csrf
-                                    <ul class="favorite_form_list">
+                             @elseif(!isset($mymenu))
+                                 
+                                  <form method="post">
+                                     @csrf
+                                     <ul class="favorite_form_list">
                                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                       <input type="hidden" name="menu_id" value="{{ $menu -> id }}">
+                                       <input type="hidden" name="favorite_menu_id" value="{{ $menu -> id }}">
                                        <input type="hidden" name="title" value="{{ $menu -> title }}">
                                           @if(isset($menu -> disease))
                                           @foreach($menu -> disease as $disease )
@@ -126,10 +129,11 @@
                                           <input type="hidden" name="method" value="{{ $menu -> method }}">
                                           <input type="hidden" name="youtube_url" value="{{ $menu -> youtube_url }}">
                                           <input type="hidden" name="video_path" value="{{ $menu -> video_path }}">
-                                       <li><input type="submit" value="お気に入りに追加"></li>
-                                       <li><i class="far fa-star"></i></li>
-                                    </ul>
-                                </form>
+                                       <li><input type="submit" value="リハビリメニューに追加"></li>
+                                  
+                                       <li><i class="fas fa-walking"></i></li>
+                                     </ul>
+                                 </form>
                              @endif
                          </div>
                   </div>  
@@ -151,10 +155,6 @@
                            <li class="keycutbar">/</li>
                          @endforeach
                          @endif
-                     </ul>
-                     <ul class="menu_keyword">
-                           <li class="key">投稿者：</li>
-                           <li class="keycutbar"><a href="/userprofile/{{ $contributor_id }}">{{ $contributor_name }}</a></li>
                      </ul>
                   </div>
                   <div class="video_and_explain">

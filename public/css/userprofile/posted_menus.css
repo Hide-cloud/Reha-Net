@@ -76,38 +76,95 @@ nav li:hover {
 
 
 
-/* contents(メニュー詳細)menu_detail
+/*　マイページ */
+
+
+.contents-wraps{
+    padding: 30px;
+    height:300px; 
+ }
+ 
+ .content-wrap{
+    background-color: #f5e7f0;
+    border: 2px solid #e5a0cb;
+    letter-spacing: .3px;
+    margin-top: 50px;
+    margin-right: 70px;
+    margin-left: 70px;
+    text-align: center;
+ }
+
+ .user-name{
+    font-size:20px;
+    font-weight: bold;
+    background-color:#e5a0cb;
+    padding: 4px 6px;
+ }
+
+ .user_name_title{
+     font-weight: bold;
+     padding-top: 10px;
+ }
+ 
+ .user-nav-bar{
+     display: flex;
+     margin-left: 30px;
+ }
+ 
+ .user-nav{
+     margin-top: 30px;
+     margin-bottom: 30px;
+     margin-right: 60px;
+     margin-left: 75px;
+     font-size: 19px;
+ }
+ 
+ .user_email_title{
+     font-weight: bold;
+ }
+
+ .user_password_title{
+     font-weight: bold;
+ }
+
+
+/* contents(投稿メニュー一覧)posted_menu
 --------------------*/
-.menu_detail{
-    margin-left:60px;
-    margin-right:60px;
+
+ .menu_area{
+    width:70%;
+    margin-left: 200px;
 }
 
-.menu_header{
+.menu_area_title{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+.menu_list{
     border-top: medium solid gray;
     box-sizing: border-box;
+}
+
+.titlebar{
+    vertical-align: middle;
     border-bottom: thin solid gray;
-    display:flex;
+    align-items:center;
 }
 
-.menu_title{
+.title{
+    margin: 4px 8px 4px 8px;
+}
+
+.title a{
     color:blue;
-    font-size:24px;
-    margin-right:400px; 
+    font-size:18px;
+    
 }
 
-.favorite_form{
-    margin-top:10px;
-    margin-bottom:10px;
-    margin-left:400px;
-}
-
-.favorite_form_list{
-    display:flex;
-}
-
-
-.menu_keyword{
+.keyword{
     text-align:center;
     display:flex;
 }
@@ -128,57 +185,10 @@ nav li:hover {
     margin: 4px 8px 4px 0;
 }
 
-.video_and_explain{
-    display:flex;
+.method_contents{
+    margin: 4px 8px 4px 0;
+    background-color:oldlace;
 }
-
-.video{
-    height: 500px;
-    width:620px;
-}
-
-.menu-explain{
-    height:500px;
-    width:650px;
-}
-
-.item_title{
-    font-family:"Calibre",sans-serif;
-    font-size:25px;
-    font-weight:170px;
-    border-left: thick solid rgb(72, 72, 73);
-}
-
-.item_title p{
-    margin: 8px;
-    color:rgb(43, 42, 42);
-}
-
-.item{
-    margin-left:40px;
-    margin-right:30px;
-    font-size:17px; 
-}
-
-
-.method_title{
-    font-family:"Calibre",sans-serif;
-    font-size:25px; 
-    font-weight:170px;
-    border-left: thick solid rgb(73, 72, 72); 
-}
-
-.method_title p{
-    margin: 8px;
-    color:rgb(43, 42, 42);
-}
-
-.method{
-    margin-left:40px;
-    margin-right:30px; 
-    font-size:17px;   
-}
-
 
 /* footer
 --------------------*/

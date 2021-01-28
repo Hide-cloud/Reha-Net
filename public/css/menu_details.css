@@ -1,0 +1,214 @@
+/* all
+--------------------*/
+
+html {
+    height: 100%;
+    width:100%;
+
+}
+
+body {
+    height : 100%;   
+    margin : 0;
+}
+
+a {
+    text-decoration:none;
+}
+    
+a:link {
+    color:#000000;
+}
+    
+a:visited {
+    color:#000000;
+}
+
+
+ul {
+    list-style: none;
+}
+
+
+
+/* header
+--------------------*/
+header {
+    height: 50px;
+    width: 100%;
+    border-bottom: thin solid gray;
+}
+
+.header-left {
+    margin-left: 50px; 
+    float: left;
+}
+
+
+/* navi
+--------------------*/
+
+.headerarea{
+    height: 15px;
+    margin: 40px auto 0 auto;
+}
+
+.header-left{
+  margin-right: auto;
+  float: left;
+}
+
+.header-right{
+  margin-left: auto;
+  float: right;
+}
+
+nav li {
+    margin-right: 50px;
+    opacity: 0.6;
+    font-weight: bold;
+    float: left;
+}
+
+nav li:hover {
+    opacity: 1;
+}
+
+
+.directory-list{
+    color:blue;
+}
+
+
+/* contents(メニュー詳細)menu_detail
+--------------------*/
+.menu_detail{
+    margin-left:60px;
+    margin-right:60px;
+}
+
+.menu_header{
+    border-top: medium solid gray;
+    box-sizing: border-box;
+    border-bottom: thin solid gray;
+}
+
+.menu_title{
+    color:blue;
+    font-size:24px;
+    margin-right:400px; 
+}
+
+.favorite_form{
+    float:right;
+}
+
+.favorite_form_list{
+    display:flex;
+}
+
+.favorite_form_list li{
+    margin-left: 10px;
+}
+
+.fas{
+    color:rgb(226, 226, 85);
+    font-size:25px;
+}
+
+.far{
+    color: black;
+    font-size:25px;
+}
+
+
+.menu_keyword{
+    text-align:center;
+    display:flex;
+}
+
+.key{
+    margin: 4px 8px 4px 0;
+    padding: 3px 16px;
+    border: solid 1px lightgray;
+    border-radius: 4px;
+    box-shadow: 0 0 4px lightgrey;
+    color: #424242;
+    font-size: 14px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.keycutbar{
+    margin: 4px 8px 4px 0;
+}
+
+.video_and_explain{
+    display:flex;
+}
+
+.video{
+    height: 500px;
+    width:620px;
+}
+
+.menu-explain{
+    height:500px;
+    width:650px;
+}
+
+.item_title{
+    font-family:"Calibre",sans-serif;
+    font-size:25px;
+    font-weight:170px;
+    border-left: thick solid rgb(72, 72, 73);
+}
+
+.item_title p{
+    margin: 8px;
+    color:rgb(43, 42, 42);
+}
+
+.item{
+    margin-left:40px;
+    margin-right:30px;
+    font-size:17px; 
+}
+
+
+.method_title{
+    font-family:"Calibre",sans-serif;
+    font-size:25px; 
+    font-weight:170px;
+    border-left: thick solid rgb(73, 72, 72); 
+}
+
+.method_title p{
+    margin: 8px;
+    color:rgb(43, 42, 42);
+}
+
+.method{
+    margin-left:40px;
+    margin-right:30px; 
+    font-size:17px;   
+}
+
+
+/* footer
+--------------------*/
+
+footer {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+  
+footer img {
+    width: 125px;
+}
+
+footer p {
+    color: #b3aeb5;
+    font-size: 12px;
+}

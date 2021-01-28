@@ -79,9 +79,6 @@ nav li:hover {
 /* contents(検索結果)serch_menu
 --------------------*/
 
-.warapper{
-    text-align: center
-}
 
 .directory-list{
     font-size:15px;
@@ -108,9 +105,15 @@ nav li:hover {
 /* contents(メニュー一覧)serch_menu
 --------------------*/
 
+.searched_result{
+    text-align: center;
+}
+
+
 .menu_area{
     width:70%;
-    display:inline-block;
+    margin-left:230px;
+    margin-right:230px;
 }
 
 .menu_list{
@@ -121,7 +124,6 @@ nav li:hover {
 .titlebar{
     vertical-align: middle;
     border-bottom: thin solid gray;
-    display:flex;
     align-items:center;
 }
 
@@ -154,6 +156,23 @@ nav li:hover {
 
 .keycutbar{
     margin: 4px 8px 4px 0;
+}
+
+.method{
+    padding-top:10px;
+}
+
+.method_title{
+    margin: 4px 8px 4px 0;
+    padding: 3px 16px;
+    border: solid 1px lightgray;
+    border-radius: 4px;
+    box-shadow: 0 0 4px lightgrey;
+    color: #424242;
+    font-size: 14px;
+    white-space: nowrap;
+    cursor: pointer;
+    width:80px;
 }
 
 .method_contents{

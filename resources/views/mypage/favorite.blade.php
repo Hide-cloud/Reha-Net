@@ -14,7 +14,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/top.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/mypage/favorites.css') }}" rel="stylesheet">
 
        
     </head>
@@ -63,7 +63,7 @@
         <div class="warapper">
              <div class="directory">
                  <div class="directory-list">
-                     <a href="/"><i class="fas fa-home"></i>Reha-Net</a> 
+                     <a href="{{ route('home') }}"><i class="fas fa-home"></i>Reha-Net</a> 
                      › <i>{{ $user -> name }}さんのマイページ</i> 
                  </div>
              </div>
@@ -82,7 +82,7 @@
                        </li>
                        <li class="user-nav">|</li>
                        <li class="user-nav">
-                          <a class="user-nav-link" href=""><span class="user-nav-name">お気に入り登録済み</span></a>
+                          <a class="user-nav-link" href="/mypage/mymenu/{{ Auth::user()->id }}"><span class="user-nav-name"><i class="fas fa-running"></i>Let's リハビリ</span></a>
                        </li>
                     </ul>
                </div>
@@ -96,7 +96,7 @@
                        <div class="menu_list">
                             <div class="titlebar">
                                 <div class="title">
-                                   <a href="/menu/{{ $favorite_menu -> id }}">{{ $favorite_menu -> title }}</a>
+                                   <a href="/mypage/favorite_menu/{{ $favorite_menu -> id }}">{{ $favorite_menu -> title }}</a>
                                 </div>
                                 <ul class="keyword">
                                     <li class="key">キーワード：</li>

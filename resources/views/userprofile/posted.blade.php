@@ -14,7 +14,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/top.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/userprofile/posted_menus.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="responsive.css" />
 
         
@@ -75,12 +75,9 @@
                    </div>
                    <ul class="user-nav-bar">
                        <li class="user-nav first-nav">
-                         <a class="user-nav-link" href="/mypage/{{ $user -> id }}"><span class="user-nav-name">登録情報</span></a>
+                         <a class="user-nav-link" href=""><span class="user-nav-name">登録情報</span></a>
                        </li>
-                       <li class="user-nav">|</li>
-                       <li class="user-nav">
-                          <a class="user-nav-link" href="/mypage/{{ $user -> id }}/posted_menu"><span class="user-nav-name">投稿したメニュー</span></a>
-                       </li>
+                       
                     </ul>
                </div>
              </div>

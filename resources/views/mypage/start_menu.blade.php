@@ -8,13 +8,14 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
         <!-- script -->
         <script src="https://kit.fontawesome.com/94583bb1d4.js" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/posted_menu.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/mypage/start_menu.css') }}" rel="stylesheet">
 
         
     </head>
@@ -60,53 +61,60 @@
 
 
         <!-- container -->
-        <div class="contents">
-            <div class="area">
-              <div class="container">
-                  <h1>メニューを作成しました！</h1>
-                  <div class="page_link">
-                      <div class="serch">
-                          <p><a href="{{ route('home') }}"><i class="fas fa-search"></i>メニュー検索へ</a></p>
-                      </div>
-                      <div class="post">
-                          <p><a href="/post_menu"><i class="fas fa-pencil-alt"></i>メニュー作成へ</a></p>
-                      </div>
-                  </div>
-               </div>
-            </div>
-
-
-
-
-            <!-- aside -->
-            <div class="areas">
-               <div class=titlebar>
-                  <p>プロフィール</p>
-               </div>
-               <div class='user-info-containers'>
-                  <div class="user_information">
-                     <div class="user_name">
-                         <h3>{{ Auth::user()->name }}　さん</h3>
-                     </div>
-                     <div class="user_profile_area">
-                         <ul class="user_profile_list">
-                           <li><a href="/mypage/{{ Auth::user()->id }}" class="btn btn-sky btn-block"><i class="fas fa-house-user"></i>マイページへ</a></li>
-                           <li><a href="/mypage/mymenu/{{ Auth::user()->id }}" class="btn btn-sky btn-block"><i class="fas fa-running"></i>Let's リハビリ</a></li>
-                           <li><a href="/mypage/{{ Auth::user()->id }}/favorite" class="btn btn-sky btn-block"><i class="far fa-star"></i>お気に入りメニュー</a></li>
-                         </ul>
-                     </div>
-                  </div>
-                  <div class="sign-up-area">
-                     <div class='sign-up-boxs'>
-                             <a class="link-btns" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                 {{ __('Logout') }}
-                             </a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            
+        <div class="warapper">
+             <div class="directory">
+                 <div class="directory-list">
+                     <a href="{{ route('home') }}"><i class="fas fa-home"></i>Reha-Net</a> 
+                     › <a href="/mypage/{{ Auth::user()->id }}">マイページ</a>
+                     › <a href="/">マイメニュー</a> 
+                 </div>
+             </div>
         </div>
+
+
+        <div class="title_wrapper">
+           <div class="title_contents">
+               <div class="title_area">
+                    <div class="start_title">
+                        <p>{{ Auth::user()->name }}さんのリハビリメニュー</p>
+                    </div>
+               </div>
+           </div>
+        </div>
+
+             
+       <!-- container -->
+        <div class="container">
+          <div class="menu_flex">
+            <div class="mymenu_area">
+              @if(isset($mymenus))
+                @foreach( $mymenus as $mymenu )
+                  <div class="mymenu">
+                    <div class="mymenu_contents">
+                        <div class="title">
+                           <a href="/mypage/favorite_menu/{{ $mymenu -> favorite_menu_id }}">{{ $mymenu -> title }}</a>
+                        </div>
+
+                        <div class="method">
+                          <div class="keyword">
+                             <p class="key">方法：</p>
+                             <p class="method_contents">{{ $mymenu -> method }}</p>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                @endforeach
+              @elseif(!isset($mymenus))
+                  <div class="notmymenu">
+                      <div class="notmymenu_contents">
+                          <p>まだマイメニューに登録していません</p>
+                      </div>
+                  </div>
+              @endif
+            <div>
+          </div>
+        </div>
+        
         
 
         <!-- footer -->

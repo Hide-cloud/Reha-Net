@@ -77,3 +77,14 @@ Route::get('/mypage/{id}/posted_menu', 'HomeController@show_mypage_postedMenu')-
 
 //マイページ(お気に入り)を表示
 Route::get('/mypage/{id}/favorite', 'HomeController@show_mypage_favorite')->name('show_mypage_favorite');
+
+//マイページ(お気に入り)詳細ページを表示
+Route::get('/mypage/favorite_menu/{id}', 'HomeController@favorite_menu_datail')->name('favorite_menu_datail');
+
+//マイページ(お気に入り)詳細ページからマイメニューに登録
+Route::post('/mypage/favorite_menu/{id}', 'MymenuController@register_mymenu')->name('register_mymenu');
+
+
+//リハビリスタートページへ遷移
+Route::get('/mypage/mymenu/{id}', 'MymenuController@start_mymenu')->name('start_mymenu');
+

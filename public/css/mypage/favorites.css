@@ -1,0 +1,210 @@
+/* all
+--------------------*/
+
+html {
+    height: 100%;
+    width:100%;
+
+}
+
+body {
+    height : 100%;   
+    margin : 0;
+}
+
+a {
+    text-decoration:none;
+}
+    
+a:link {
+    color:#000000;
+}
+    
+a:visited {
+    color:#000000;
+}
+
+
+ul {
+    list-style: none;
+}
+
+
+
+/* header
+--------------------*/
+header {
+    height: 50px;
+    width: 100%;
+    border-bottom: thin solid gray;
+}
+
+.header-left {
+    margin-left: 50px; 
+    float: left;
+}
+
+
+/* navi
+--------------------*/
+
+.headerarea{
+    height: 15px;
+    margin: 40px auto 0 auto;
+}
+
+.header-left{
+  margin-right: auto;
+  float: left;
+}
+
+.header-right{
+  margin-left: auto;
+  float: right;
+}
+
+nav li {
+    margin-right: 50px;
+    opacity: 0.6;
+    font-weight: bold;
+    float: left;
+}
+
+nav li:hover {
+    opacity: 1;
+}
+
+
+
+/*　マイページ */
+
+.contents-wraps{
+    padding: 30px;
+    height:300px; 
+ }
+ 
+ .content-wrap{
+    background-color: #eef6fc;
+    border: 2px solid #2196f3;
+    letter-spacing: .3px;
+    margin-top: 50px;
+    margin-right: 70px;
+    margin-left: 70px;
+    text-align: center;
+ }
+
+ .user-name{
+    font-size:20px;
+    font-weight: bold;
+    background-color: #2196f3;
+    padding: 4px 6px;
+ }
+
+ .user_name_title{
+     font-weight: bold;
+     padding-top: 10px;
+ }
+ 
+ .user-nav-bar{
+     display: flex;
+     margin-left: 30px;
+ }
+ 
+ .user-nav{
+     margin-top: 30px;
+     margin-bottom: 30px;
+     margin-right: 60px;
+     margin-left: 75px;
+     font-size: 19px;
+ }
+ 
+ .user_email_title{
+     font-weight: bold;
+ }
+
+ .user_password_title{
+     font-weight: bold;
+ }
+
+
+
+/* contents(投稿メニュー一覧)posted_menu
+--------------------*/
+
+ .menu_area{
+    width:70%;
+    display:inline-block;
+    margin-left: 200px;
+}
+
+.profile_top_title{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+.menu_list{
+    border-top: medium solid gray;
+    box-sizing: border-box;
+}
+
+.titlebar{
+    vertical-align: middle;
+    border-bottom: thin solid gray;
+    align-items:center;
+}
+
+.title{
+    margin: 4px 8px 4px 8px;
+}
+
+.title a{
+    color:blue;
+    font-size:18px;
+    
+}
+
+.keyword{
+    text-align:center;
+    display:flex;
+}
+
+.key{
+    margin: 4px 8px 4px 0;
+    padding: 3px 16px;
+    border: solid 1px lightgray;
+    border-radius: 4px;
+    box-shadow: 0 0 4px lightgrey;
+    color: #424242;
+    font-size: 14px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.keycutbar{
+    margin: 4px 8px 4px 0;
+}
+
+.method_contents{
+    margin: 4px 8px 4px 0;
+    background-color:oldlace;
+}
+
+/* footer
+--------------------*/
+
+footer {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+  
+footer img {
+    width: 125px;
+}
+
+footer p {
+    color: #b3aeb5;
+    font-size: 12px;
+}

@@ -8,6 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
         <!-- script -->
         <script src="https://kit.fontawesome.com/94583bb1d4.js" crossorigin="anonymous"></script>
@@ -78,7 +79,7 @@
                  <h2 class='search-genre__title'><span>キーワードから探す</span></h2>
                   <form  class="keywordform" method="post">
                   @csrf
-                    <input class="keywordbox" placeholder="キーワード[例：yohji yamamoto]" name="serch_menu">
+                    <input class="keywordbox" placeholder="キーワード[例：手のリハビリ]" name="serch_menu">
                     <input class="kewordbtn" type="submit" name="commit" value="検 索">
                   </form>
               
@@ -99,7 +100,7 @@
                                    <span>上肢</span>
                                  </div>
                                  <div class='top-genre__store-count'>
-                                    <span>6件</span>
+                                    <span>{{ $arm_menus_count }}件</span>
                                  </div>
                                 </div>
                               </a>
@@ -117,7 +118,7 @@
                                    <span>下肢</span>
                                  </div>
                                  <div class='top-genre__store-count'>
-                                    <span>6件</span>
+                                    <span>{{ $leg_menus_count }}件</span>
                                  </div>
                                 </div>
                               </a>
@@ -135,7 +136,7 @@
                                    <span>体幹</span>
                                  </div>
                                  <div class='top-genre__store-count'>
-                                    <span>6件</span>
+                                    <span>{{ $trunk_menus_count  }}件</span>
                                  </div>
                                 </div>
                               </a>
@@ -153,7 +154,7 @@
                                    <span>手指</span>
                                  </div>
                                  <div class='top-genre__store-count'>
-                                    <span>6件</span>
+                                    <span>{{ $finger_menus_count  }}件</span>
                                  </div>
                                 </div>
                               </a>
@@ -171,7 +172,7 @@
                                     <span>発声</span>
                                   </div>
                                   <div class='top-genre__store-count'>
-                                     <span>6件</span>
+                                     <span>{{ $voice_menus_count }}件</span>
                                   </div>
                                  </div>
                                </a>
@@ -200,7 +201,7 @@
                                    <span>食事</span>
                                  </div>
                                  <div class='top-genre__store-count'>
-                                    <span>6件</span>
+                                    <span>{{ $eat_menus_count }}件</span>
                                  </div>
                                 </div>
                               </a>
@@ -218,7 +219,7 @@
                                    <span>歩行</span>
                                  </div>
                                  <div class='top-genre__store-count'>
-                                    <span>6件</span>
+                                    <span>{{ $walk_menus_count }}件</span>
                                  </div>
                                 </div>
                               </a>
@@ -236,7 +237,7 @@
                                    <span>洗体</span>
                                  </div>
                                  <div class='top-genre__store-count'>
-                                    <span>6件</span>
+                                    <span>{{ $wash_menus_count }}件</span>
                                  </div>
                                 </div>
                               </a>
@@ -254,7 +255,7 @@
                                    <span>階段</span>
                                  </div>
                                  <div class='top-genre__store-count'>
-                                    <span>6件</span>
+                                    <span>{{ $stairs_menus_count }}件</span>
                                  </div>
                                 </div>
                               </a>
@@ -272,7 +273,7 @@
                                     <span>仕事</span>
                                   </div>
                                   <div class='top-genre__store-count'>
-                                     <span>6件</span>
+                                     <span>{{ $work_menus_count }}件</span>
                                   </div>
                                  </div>
                                </a>
@@ -291,6 +292,9 @@
             
 
             <div class="areas">
+               <div class=titlebar>
+                  <p>プロフィール</p>
+               </div>
                <div class='user-info-containers'>
                   <div class="user_information">
                      <div class="user_name">
@@ -298,9 +302,9 @@
                      </div>
                      <div class="user_profile_area">
                          <ul class="user_profile_list">
-                           <li><a href="/mypage/{{ Auth::user()->id }}" class="btn btn-sky btn-block">マイページへ</a></li>
-                           <li><a href="" class="btn btn-sky btn-block">Let's リハビリ</a></li>
-                           <li><a href="/mypage/{{ Auth::user()->id }}/favorite" class="btn btn-sky btn-block">お気に入りメニュー</a></li>
+                           <li><a href="/mypage/{{ Auth::user()->id }}" class="btn btn-sky btn-block"><i class="fas fa-house-user"></i>マイページへ</a></li>
+                           <li><a href="/mypage/mymenu/{{ Auth::user()->id }}" class="btn btn-sky btn-block"><i class="fas fa-running"></i>Let's リハビリ</a></li>
+                           <li><a href="/mypage/{{ Auth::user()->id }}/favorite" class="btn btn-sky btn-block"><i class="far fa-star"></i>お気に入りメニュー</a></li>
                          </ul>
                      </div>
                   </div>

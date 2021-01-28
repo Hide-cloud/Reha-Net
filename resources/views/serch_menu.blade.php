@@ -14,7 +14,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/serch_menu.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/serch_menus.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="responsive.css" />
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -65,8 +65,7 @@
         <div class="warapper">
              <div class="directory">
                  <div class="directory-list">
-                     <a href="{{ route('home') }}"><i class="fas fa-home"></i>Reha-Net</a> 
-                     › <a href="/">全てのメニュー</a> 
+                     <a href="{{ route('home') }}"><i class="fas fa-home"></i>Reha-Net</a>  
                      › <span>{{ $serch_menu }}　に関するメニュー</span>
                  </div>
              </div>
@@ -74,7 +73,7 @@
              <div class="searched_result">
                   <div class="searched_heading-box__result">
                      <span class="result_title">"{{ $serch_menu }}"　に関するメニュー</span>
-                     <span class="result_count">25件</span>
+                     <span class="result_count">{{ $serch_menus_count }}件</span>
                   </div>
              </div>
 
@@ -110,8 +109,8 @@
 
                              </div>
                              <div class="method">
-                               <ul class="keyword">
-                                  <li class="key">方法：</li>
+                               <ul class="method_area">
+                                  <li class="method_title">方法：</li>
                                   <li class="method_contents">{{ $serch_menu -> method }}</li>
                                </ul>
                              </div>

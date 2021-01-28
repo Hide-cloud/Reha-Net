@@ -14,7 +14,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/top.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/userprofile/userprofiles.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="responsive.css" />
 
         
@@ -75,10 +75,7 @@
                    </div>
                    <div class="user-nav-list">
                       <ul class="user-nav-bar">
-                          <li class="user-nav">
-                            <a class="user-nav-link" href=""><span class="user-nav-name">登録情報</span></a>
-                          </li>
-                          <li class="user-nav">|</li>
+                          
                           <li class="user-nav">
                              <a class="user-nav-link" href="/userprofile/{{ $user -> id }}/posted_menu"><span class="user-nav-name">投稿したメニュー</span></a>
                           </li>
@@ -87,27 +84,24 @@
                </div>
              </div>
              <div class="profile_top_area">
-                  <div class="profile_top_title">
-                    <p>｜登録情報｜</p>
-                  </div>
-                  <div class="user_register_information">
-                      <div class="information_area">
-                           <div class="icon_area">
-                               <div class="icon_title">
-                                   <p>プロフィール画像</p>
-                               </div>
+                 <div class="profile_top_title">
+                   <p>｜登録情報｜</p>
+                 </div>
+                 <div class="user_register_information">
+                     <div class="information_area">
+                          
+                        <div class="user_name_area">
+                           <div class="user_name_title">
+                               <p>ユーザー名</p>
                            </div>
-                           <div class="user_name_area">
-                               <div class="user_name_title">
-                                   <p>ユーザー名</p>
-                               </div>
-                               <div class="user_name">
-                                   <p>{{ $user -> name }}</p>
-                               </div>
+                           <div class="user_name">
+                               <p>{{ $user -> name }}</p>
                            </div>
-                       </div>  
-                  </div>
-             </div>
+                         </div>
+                         
+                     </div>  
+                 </div>
+            </div>
         </div>
         
 

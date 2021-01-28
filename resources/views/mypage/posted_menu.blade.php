@@ -14,7 +14,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/top.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/mypage/posted_menus.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="responsive.css" />
 
         
@@ -64,28 +64,30 @@
         <div class="warapper">
              <div class="directory">
                  <div class="directory-list">
-                     <a href="/"><i class="fas fa-home"></i>Reha-Net</a> 
+                     <a href="{{ route('home') }}"><i class="fas fa-home"></i>Reha-Net</a> 
                      › <i>{{ $user -> name }}さんのマイページ</i> 
                  </div>
              </div>
              <div class="contents-wraps">
                <div class="content-wrap">
                    <div class='user-name'>
-                      <p>{{ $user -> name }}さん のマイページ</p>
+                      <p>{{ Auth::user()->name }}さん のマイページ</p>
                    </div>
-                   <ul class="user-nav-bar">
-                       <li class="user-nav first-nav">
-                         <a class="user-nav-link" href="/mypage/{{ $user -> id }}"><span class="user-nav-name">登録情報</span></a>
-                       </li>
-                       <li class="user-nav">|</li>
-                       <li class="user-nav">
-                          <a class="user-nav-link" href="/mypage/{{ $user -> id }}/posted_menu"><span class="user-nav-name">投稿したメニュー</span></a>
-                       </li>
-                       <li class="user-nav">|</li>
-                       <li class="user-nav">
-                          <a class="user-nav-link" href="/mypage/{{ $user -> id }}/favorite"><span class="user-nav-name">お気に入り登録済み</span></a>
-                       </li>
-                    </ul>
+                   <div class="user-nav-list">
+                      <ul class="user-nav-bar">
+                          <li class="user-nav">
+                             <a class="user-nav-link" href="/mypage/{{ Auth::user()->id }}"><span class="user-nav-name">登録情報</span></a>
+                          </li>
+                          <li class="user-nav">|</li>
+                          <li class="user-nav">
+                            <a class="user-nav-link" href="/mypage/mymenu/{{ Auth::user()->id }}"><span class="user-nav-name"><i class="fas fa-running"></i>Let's リハビリ</span></a>
+                          </li>
+                          <li class="user-nav">|</li>
+                          <li class="user-nav">
+                             <a class="user-nav-link" href="/mypage/{{ $user -> id }}/favorite"><span class="user-nav-name"><i class="far fa-star"></i>お気に入り登録済み</span></a>
+                          </li>
+                       </ul>
+                   </div>
                </div>
              </div>
              <div class="menu_area">
