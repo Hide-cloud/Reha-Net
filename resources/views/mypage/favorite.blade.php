@@ -98,6 +98,21 @@
                                 <div class="title">
                                    <a href="/mypage/favorite_menu/{{ $favorite_menu -> id }}">{{ $favorite_menu -> title }}</a>
                                 </div>
+
+                                <div class="favorite_form"> 
+                                       <form method="post">
+                                          @csrf
+                                          <ul class="favorite_form_list">
+                                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                            <input type="hidden" name="menu_id" value="{{ $favorite_menu -> id }}">
+                                            <li><input type="submit" value="お気に入りから外す"></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                          </ul>
+                                       </form>
+                                </div>
+
+
+
                                 <ul class="keyword">
                                     <li class="key">キーワード：</li>
                                   @foreach($favorite_menu -> keyword as $keyword )

@@ -14,7 +14,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/top.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('css/welcom.css') }}" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="responsive.css" />
 
         
@@ -281,37 +281,32 @@
 
             <!-- aside -->
             
-
             <div class="areas">
-                <div class='user-info-containers'>
-                    <div class='top-container'>
-                       <div class="top_container_title">
-                          <h3>新規会員登録</h3>
-                       </div>
-                       <div class='explain-login'>
-                          <span>会員登録し、ログインすることでメニューを投稿したり、お気に入り登録ができ、自分だけのメニューを作ることができるようになります。</span>
-                       </div>
-                       <div class='sign-up-box'>
-                          <a class="link-btn" href="{{ route('register') }}">新規登録</a>
-                          <a class="link-btn" href="{{ route('login') }}">ログイン</a>
-                       </div>
-                    </div>
-                </div>
+               <div class=titlebar>
+                  <p>新規会員登録</p>
+               </div>
+               <div class='user-info-containers'>
+                  <div class="user_information">
+                     <div class="user_profile_area">
+                     <span>会員登録し、ログインすることでメニューを投稿したり、お気に入り登録ができ、自分だけのメニューを作ることができるようになります。</span>
+                     </div>
+                  </div>
+                  <div class="sign-up-area">
+                     <div class='sign-up-boxs'>
+                         <a class="link-btns" href="{{ route('register') }}">新規登録</a>
+                         <a class="link-btns" href="{{ route('login') }}">ログイン</a>
+                     </div>
+                  </div>
+               </div>
             </div>
         </div>
         
-        
-
-        
-        <div class="page_top">
-            <a href="#top" class="js-smooth-scroll"></a>
-        </div>
-
+      
         <!-- footer -->
         <footer>
             <div class="footer-list">
               <a href="#">TOPへ</a>
-              <p>&copy;2020 Hidetaka Yamasaki  Profile</p>
+              <p>&copy;Reha-Net</p>
             </div>
         </footer>
 
@@ -319,3 +314,4 @@
         <script src="main.js"></script>
     </body>
 </html>
+

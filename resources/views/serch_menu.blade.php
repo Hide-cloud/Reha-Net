@@ -127,10 +127,6 @@
         
         </div>
         
-        <div class="page_top">
-            <a href="#top" class="js-smooth-scroll"></a>
-        </div>
-
         <!-- footer -->
         <footer>
             <div class="footer-list">

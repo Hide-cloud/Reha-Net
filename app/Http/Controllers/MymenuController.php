@@ -11,7 +11,7 @@ use Auth;
 
 class MymenuController extends Controller
 {
-    //マイメニューに入り登録
+    ////マイメニューに登録
     public function register_mymenu(Request $request){
 
         $mymenu_register = $request->all();
@@ -41,7 +41,7 @@ class MymenuController extends Controller
 
 
 
-    //マイメニューに入り登録
+    //マイメニューを表示
     public function start_mymenu($id){
 
         $mymenus =Mymenu::where('user_id',$id)->get();

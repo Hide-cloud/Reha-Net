@@ -14,8 +14,9 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/top.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/serch_menus.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="responsive.css" />
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
         
     </head>
@@ -49,14 +50,11 @@
             </nav>
         </header>
 
-
-
         <!-- container -->
         <div class="warapper">
              <div class="directory">
                  <div class="directory-list">
-                     <a href="/"><i class="fas fa-home"></i>Reha-Net</a> 
-                     › <a href="/">全てのメニュー</a> 
+                     <a href="{{ route('home') }}"><i class="fas fa-home"></i>Reha-Net</a>  
                      › <span>{{ $serch_menu }}　に関するメニュー</span>
                  </div>
              </div>
@@ -64,17 +62,10 @@
              <div class="searched_result">
                   <div class="searched_heading-box__result">
                      <span class="result_title">"{{ $serch_menu }}"　に関するメニュー</span>
-                     <span class="result_count">25件</span>
+                     <span class="result_count">{{ $serch_menus_count }}件</span>
                   </div>
              </div>
 
-             <div class="shop-paginate">
-                  <ul class="pagination pagination">
-                      
-
-
-                  </ul>
-             </div>
 
              <div class="menu_area">
                 @if(isset($serch_menus))
@@ -82,8 +73,9 @@
                        <div class="menu_list">
                             <div class="titlebar">
                                 <div class="title">
-                                   <a href="/menu/{{ $serch_menu -> id }}">{{ $serch_menu -> title }}</a>
+                                   <a href="/nonlog/menu/{{ $serch_menu -> id }}">{{ $serch_menu -> title }}</a>
                                 </div>
+                                
                                 <ul class="keyword">
                                     <li class="key">対象疾患：</li>
                                   @if(isset($serch_menu -> disease))
@@ -103,15 +95,19 @@
                                   @endforeach
                                   @endif
                                 </ul>
+
                              </div>
                              <div class="method">
-                               <ul class="keyword">
-                                  <li class="key">方法：</li>
+                               <ul class="method_area">
+                                  <li class="method_title">方法：</li>
                                   <li class="method_contents">{{ $serch_menu -> method }}</li>
                                </ul>
                              </div>
                        </div>
                    @endforeach
+                   <div class="d-flex justify-content-center">
+                        {{ $serch_menus->appends(array('sort' => 'date'))->links('vendor.pagination.sample-pagination') }}
+                   </div>
                 @elseif(empty($serch_menus))
                   <p>まだ"{{ $serch_menu }}"に関するメニューの投稿がありません</p>
                 @endif

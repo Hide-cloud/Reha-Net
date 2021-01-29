@@ -58,10 +58,15 @@ class MenuController extends Controller
 
     //メニュー検索して一覧表示へ(nonlog)
     public function serch_nonlog(Request $request_menu){
-        $serch_menu =$request_menu->serch_menu;
-        $serch_menus = Menu::where('title', 'like', "%$serch_menu%")->orWhere('keyword', "$serch_menu")->get();
         
-        return view('serch_menu(nonlog)',['serch_menus' => $serch_menus],['serch_menu' => $serch_menu]);
+        $serch_menu =$request_menu->serch_menu;
+        //pagenation付き
+        $serch_menus = Menu::where('title', 'like', "%$serch_menu%")->orWhere('keyword', "$serch_menu")->paginate(10);
+        
+        //件数をカウント
+        $serch_menus_count = Menu::where('title', 'like', "%$serch_menu%")->orWhere('keyword', "$serch_menu")->count();
+        
+        return view('serch_menu(nonlog)',['serch_menus' => $serch_menus],['serch_menu' => $serch_menu])->with('serch_menus_count',$serch_menus_count);
     }
 
     //メニュー詳細画面へ(nonlog)
@@ -71,7 +76,7 @@ class MenuController extends Controller
         //投稿者情報を取得
         $contributor = Menu::find($id)->user->name;
         //withメソッドで値をviewへ返す
-        return view('menu_detail(nonlog)',['menu' => $menu])->with('contributor',$contributor);
+        return view('menu_detail_nonlog',['menu' => $menu])->with('contributor',$contributor);
     }
 
 

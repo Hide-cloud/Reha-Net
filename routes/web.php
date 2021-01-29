@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 //トップページからメニュー検索(nonlog)
 Route::post('/', 'MenuController@serch_nonlog')->name('serch_nonlog');
 
@@ -75,8 +76,14 @@ Route::get('/mypage/{id}', 'HomeController@show_mypage')->name('show_mypage');
 //マイページ(投稿したメニュー)を表示
 Route::get('/mypage/{id}/posted_menu', 'HomeController@show_mypage_postedMenu')->name('show_mypage_postedMenu');
 
+//投稿したメニュを削除する
+Route::post('/mypage/{id}/posted_menu', 'HomeController@delete_menu')->name('delete_menu');
+
 //マイページ(お気に入り)を表示
 Route::get('/mypage/{id}/favorite', 'HomeController@show_mypage_favorite')->name('show_mypage_favorite');
+
+//マイページ(お気に入り)からお気に入り削除する
+Route::post('/mypage/{id}/favorite', 'HomeController@delete_favorite')->name('delete_favorite');
 
 //マイページ(お気に入り)詳細ページを表示
 Route::get('/mypage/favorite_menu/{id}', 'HomeController@favorite_menu_datail')->name('favorite_menu_datail');

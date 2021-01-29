@@ -91,14 +91,43 @@ class HomeController extends Controller
         //投稿者情報を取得
         $posted_menus = Menu::where('user_id',$id)->get();
 
-        //withメソッドで値をviewへ返す
         return view('mypage.posted_menu',['user' => $user],['posted_menus' => $posted_menus]);
     }
+
+
+    //投稿したメニューを削除する
+    public function delete_menu(Request $request){
+        
+        //メニューを削除
+        Menu::where('id',$request->menu_id)->where('user_id',$request->user_id)->delete();
+
+        $id=Auth::user()->id;
+        $user =User::find($id);
+
+        //投稿者情報を取得
+        $posted_menus = Menu::where('user_id',$id)->get();
+
+        return view('mypage.posted_menu',['user' => $user],['posted_menus' => $posted_menus]);
+    }
+
 
     //マイページ(お気に入り)へ
     public function show_mypage_favorite($id)
     {
 
+        $user =User::find($id);
+        $favorite_menus=Favorite::where('user_id',$id)->get();
+    
+        return view('mypage.favorite',['user' => $user],['favorite_menus' => $favorite_menus]);
+    }
+
+    //マイページ(お気に入り)からお気に入り削除する
+    public function delete_favorite(Request $request)
+    {
+        //お気に入り削除
+        Favorite::where('id',$request->menu_id)->where('user_id',$request->user_id)->delete();
+
+        $id=Auth::user()->id;
         $user =User::find($id);
         $favorite_menus=Favorite::where('user_id',$id)->get();
     

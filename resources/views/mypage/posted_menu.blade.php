@@ -101,6 +101,16 @@
                                 <div class="title">
                                    <a href="/menu/{{ $posted_menu -> id }}">{{ $posted_menu -> title }}</a>
                                 </div>
+                                <div class="posted_menu_form"> 
+                                       <form method="post">
+                                          @csrf
+                                          <ul class="posted_menu_form_list">
+                                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                            <input type="hidden" name="menu_id" value="{{ $posted_menu -> id }}">
+                                            <li><input type="submit" value="投稿を削除する"></li>
+                                          </ul>
+                                       </form>
+                                </div>
                                 <ul class="keyword">
                                     <li class="key">キーワード：</li>
                                   @foreach($posted_menu -> keyword as $keyword )

@@ -1,0 +1,245 @@
+html {
+    height: 100%;
+    width:100%;
+
+}
+
+body {
+    height : 100%;   
+    margin : 0;
+}
+
+a {
+    text-decoration:none;
+}
+    
+a:link {
+    color:#000000;
+}
+    
+a:visited {
+    color:#000000;
+}
+
+
+ul {
+    list-style: none;
+}
+
+/* header
+--------------------*/
+header {
+    height: 50px;
+    width: 100%;
+    border-bottom: thin solid gray;
+}
+
+.header-left {
+    margin-left: 50px; 
+    float: left;
+}
+
+/* navi
+--------------------*/
+
+.headerarea{
+    height: 15px;
+    margin: 40px auto 0 auto;
+}
+
+.header-left{
+  margin-right: auto;
+  float: left;
+}
+
+.header-right{
+  margin-left: auto;
+  float: right;
+}
+
+nav li {
+    margin-right: 50px;
+    opacity: 0.6;
+    font-weight: bold;
+    float: left;
+}
+
+nav li:hover {
+    opacity: 1;
+}
+
+/* main
+--------------------*/
+
+.top-area {
+    background-image: url("https://publicdomainq.net/images/201708/13s/publicdomainq-0012189rgh.jpg");
+    background-size: cover;
+    height:700px;
+    width: 100%;
+}
+
+.message {
+    color: #311731;
+    width: 60%;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.message h2 {
+    font-size: 50px;
+    letter-spacing: 5px;
+    padding-top: 50px;
+}
+
+.message p {
+    font-weight: bold;
+    letter-spacing: 5px;
+    line-height: 40px;
+    padding-bottom: 50px;
+    font-size:30px
+}
+
+/* contents
+--------------------*/
+
+.contents {
+    margin-top: 30px;
+    margin-right: 20px;
+    display:flex;
+}
+
+.contents h2 {
+    color:#4F4B4B;
+    font-size: 25px;
+    margin-left:20px;
+}
+
+/* contents
+--------------------*/
+.area{
+    margin-top:10px;
+    margin-right:10px;
+    margin-bottom:10px;
+    margin-left:10px;
+}
+
+.search-genre__title{
+    border-left: thick solid rgb(82, 142, 219);
+}
+
+.search-genre__title span{
+    margin-left:10px;
+}
+
+.keywordform{
+  margin-left:20px;
+}
+
+.keywordbox{
+  width:500px;
+  height:40px;
+  font-size:15px;
+}
+
+.kewordbtn{
+  width:70px;
+  height:40px;
+  font-size:20px;
+}
+
+.top-genre__img{
+    width:140px;
+    height:110px;
+}
+
+
+.top-genres {
+    display: flex;
+}
+
+.top-genre{
+    margin-right:10px;
+    margin-bottom:10px;
+    position: relative;
+}
+
+.top-genre__font{
+    position: absolute;
+    top: 55px;
+    left:55px;
+}
+
+.top-genre__name{
+    color:rgb(34, 33, 33);
+    font-size:20px;
+    font-weight: bold;
+}
+
+.top-genre__store-count{
+    font-size:13px;
+}
+
+/* contents(マイプロフィール欄)
+--------------------*/
+
+.areas{
+    width:325px;
+    height:350px;
+    margin-top: 50px;
+    margin-left:120px;
+    background-color: #eef6fc;
+    border: 2px solid #2196f3;
+    letter-spacing: .3px;
+}
+
+.titlebar{
+    text-align: center;
+    color: #fff;
+    font-size:20px;
+    font-weight: bold;
+    background-color: #2196f3;
+    padding: 4px 6px;
+}
+
+.user-info-containers{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.user_information{
+    margin-right:20px;
+    margin-left:20px;
+    margin-top:40px;
+    margin-bottom:60px;
+}
+
+
+.sign-up-boxs .link-btns{
+    padding: 1em 2em;
+    border: solid 1px #0f9ada;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+    background: #03A9F4;
+    color: #FFF;
+    font-size: 12px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+}
+
+/* footer
+--------------------*/
+
+footer {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+  
+footer img {
+    width: 125px;
+}
+
+footer p {
+    color: #b3aeb5;
+    font-size: 12px;
+}

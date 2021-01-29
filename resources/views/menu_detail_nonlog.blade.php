@@ -14,7 +14,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/top.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/menu_details.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="responsive.css" />
 
         
@@ -65,39 +65,7 @@
                          <div class="menu_title">
                             <p>{{ $menu -> title }}</p>
                          </div>
-                         <div class="favorite_form">
-                             @if(isset($favorite))
-                                  @if( $favorite -> user_id == Auth::user()->id && $favorite -> menu_id == $menu -> id)
-                                    <ul class="favorite_form_list">
-                                     <form method="post">
-                                        @csrf
-                                          <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                          <input type="hidden" name="menu_id" value="{{ $menu -> id }}">
-                                          <li><input type="submit" value="お気に入りから外す"></li>
-                                     </form>
-                                          <li>※登録済み</li>
-                                    </ul>
-                                  @else
-                                    <ul class="favorite_form_list">
-                                     <form method="post">
-                                        @csrf
-                                          <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                          <input type="hidden" name="menu_id" value="{{ $menu -> id }}">
-                                          <li><input type="submit" value="お気に入りに追加"></li>
-                                     </form> 
-                                    </ul>
-                                  @endif
-                             @elseif( !isset($favorite) )
-                                 <ul class="favorite_form_list">
-                                  <form method="post">
-                                     @csrf
-                                       <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                       <input type="hidden" name="menu_id" value="{{ $menu -> id }}">
-                                       <li><input type="submit" value="お気に入りに追加"></li>
-                                  </form>
-                                 </ul>
-                             @endif
-                         </div>
+                         
                   </div>  
                   <div class="menu_keyword_area">
                   <ul class="menu_keyword">
