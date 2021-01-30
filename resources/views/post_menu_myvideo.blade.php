@@ -14,7 +14,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/post_menus.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/post_menu.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="responsive.css" />
 
         
@@ -86,13 +86,13 @@
                        <form method="post" enctype="multipart/form-data">
                          @csrf
                            <div class="form_title">
-                              <p>メニュータイトル：</p>
+                              <p>メニュータイトル：　※必須</p>
                               <input type="text" placeholder="例)：片麻痺の方の箸を使った食事練習" name="title" class="title_form">
                            </div>
 
                            <div class="disease">
                               <!--チェックボックス03-->
-                              <p>対象疾患(複数選択可)：</p>
+                              <p>対象疾患(複数選択可)：　※必須</p>
                               <div class="checkbox_area">
                                     <input type="checkbox" id="03-A" name="disease[]" value="脳血管障害">
                                        <label for="03-A" class="checkbox03">脳血管障害</label>
@@ -115,7 +115,7 @@
 
                            <div class="keyword">
                                <!--チェックボックス04-->
-                               <p>ジャンル(複数選択可)：</p>
+                               <p>ジャンル(複数選択可)：　※必須</p>
                                <div class="checkbox_area">
                                     <input type="checkbox" id="04-A" name="keyword[]" value="上肢">
                                        <label for="04-A" class="checkbox03">上肢</label>
@@ -142,11 +142,11 @@
                               <input type="text" placeholder="例)：箸、ゴルフボール、鉛筆" name="item" class="item_form">
                            </div>
                            <div class="post_method">
-                              <p>実施方法：</p>
+                              <p>実施方法：　※必須</p>
                               <textarea type="text" placeholder="例)：箸、ゴルフボール、鉛筆" name="method"　class="method_form"></textarea>
                            </div>
                            <div class="video_area">
-                               <p>参考動画(自分で作成した動画)：</p>    
+                               <p>参考動画(自分で作成した動画)：　※必須</p>    
                                <input type="file" name="video_path">        
                                <p>&nbsp;</p>                       
                            </div>
@@ -203,7 +203,7 @@
         <footer>
             <div class="footer-list">
               <a href="#">TOPへ</a>
-              <p>&copy;2020 Hidetaka Yamasaki  Profile</p>
+              <p>&copy;Reha-Net</p>
             </div>
         </footer>
 

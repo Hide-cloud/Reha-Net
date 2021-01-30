@@ -14,7 +14,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/mypage/posted_menus.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/mypage/posted_menu.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="responsive.css" />
 
         
@@ -76,7 +76,7 @@
                    <div class="user-nav-list">
                       <ul class="user-nav-bar">
                           <li class="user-nav">
-                             <a class="user-nav-link" href="/mypage/{{ Auth::user()->id }}"><span class="user-nav-name">登録情報</span></a>
+                             <a class="user-nav-link" href="/mypage/{{ Auth::user()->id }}"><span class="user-nav-name"><i class="fas fa-user-circle"></i>登録情報</span></a>
                           </li>
                           <li class="user-nav">|</li>
                           <li class="user-nav">
@@ -88,7 +88,7 @@
                           </li>
                           <li class="user-nav">|</li>
                           <li class="user-nav">
-                             <a class="user-nav-link" href="/mypage/{{ $user -> id }}/set_goal"><span class="user-nav-name"><i class="far fa-star"></i>目標を設定する</span></a>
+                             <a class="user-nav-link" href="/mypage/{{ $user -> id }}/set_goal"><span class="user-nav-name"><i class="fas fa-bullseye"></i>目標を設定する</span></a>
                           </li>
                        </ul>
                    </div>
@@ -144,7 +144,7 @@
         <footer>
             <div class="footer-list">
               <a href="#">TOPへ</a>
-              <p>&copy;2020 Hidetaka Yamasaki  Profile</p>
+              <p>&copy;Reha-Net</p>
             </div>
         </footer>
 

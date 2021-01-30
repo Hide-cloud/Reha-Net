@@ -119,7 +119,7 @@
                    <div class="d-flex justify-content-center">
                         {{ $serch_menus->appends(array('sort' => 'date'))->links('vendor.pagination.sample-pagination') }}
                    </div>
-                @elseif(empty($serch_menus))
+                @elseif(!isset($serch_menus))
                   <p>おすすめのメニューがありません</p>
                   <div class="explain">
                      <p>※おすすめメニューを検索するにはマイページから目標設定をしてください</p>

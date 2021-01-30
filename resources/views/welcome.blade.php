@@ -8,13 +8,14 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
 
         <!-- script -->
         <script src="https://kit.fontawesome.com/94583bb1d4.js" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/welcom.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('css/welcompage.css') }}" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="responsive.css" />
 
         
@@ -55,11 +56,13 @@
 
         <!-- title -->
             <div class="top-area">
-            <div class="message">
-                <h2>手軽に始めるリハビリ</h2>
-                <p>QOLアップを目指して</p>
-                <p>Let's　start　exercise.</p>
-            </div>
+                <div class="message">
+                    <h2>手軽に始めるリハビリ</h2>
+                    <p>QOLアップを目指して</p>
+                    <p>Let's　start　exercise.</p>
+                </div>
+                <div class="image">
+                </div>
         </div>
 
 

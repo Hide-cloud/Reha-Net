@@ -15,7 +15,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/mypage/favorite_detail.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/mypage/favorite_details.css') }}" rel="stylesheet">
 
         
     </head>
@@ -210,15 +210,16 @@
         
         
         
-        <div class="page_top">
-            <a href="#top" class="js-smooth-scroll"></a>
+        <div class="startpage_link">
+          <p>マイリハビリメニューページへ</p>
+            <a href="/mypage/mymenu/{{ Auth::user()->id }}" class="btn btn-c">Let's リハビリ</a>
         </div>
 
         <!-- footer -->
         <footer>
             <div class="footer-list">
               <a href="#">TOPへ</a>
-              <p>&copy;2020 Hidetaka Yamasaki  Profile</p>
+              <p>&copy;Reha-Net</p>
             </div>
         </footer>
 

@@ -15,7 +15,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/mypage/mypage_tops.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/mypage/mypage_top.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="responsive.css" />
 
         
@@ -81,7 +81,7 @@
                           </li>
                           <li class="user-nav">|</li>
                           <li class="user-nav">
-                             <a class="user-nav-link" href="/mypage/{{ $user -> id }}/posted_menu"><span class="user-nav-name">投稿したメニュー</span></a>
+                             <a class="user-nav-link" href="/mypage/{{ $user -> id }}/posted_menu"><span class="user-nav-name"><i class="fab fa-usps"></i>投稿したメニュー</span></a>
                           </li>
                           <li class="user-nav">|</li>
                           <li class="user-nav">
@@ -89,7 +89,7 @@
                           </li>
                           <li class="user-nav">|</li>
                           <li class="user-nav">
-                             <a class="user-nav-link" href="/mypage/{{ $user -> id }}/set_goal"><span class="user-nav-name"><i class="far fa-star"></i>目標を設定する</span></a>
+                             <a class="user-nav-link" href="/mypage/{{ $user -> id }}/set_goal"><span class="user-nav-name"><i class="fas fa-bullseye"></i>目標を設定する</span></a>
                           </li>
                        </ul>
                    </div>

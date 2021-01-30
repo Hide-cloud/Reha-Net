@@ -113,10 +113,14 @@ nav li:hover {
  .user-nav{
      margin-top: 30px;
      margin-bottom: 30px;
-     margin-right: 60px;
-     margin-left: 60px;
+     margin-right: 33px;
+     margin-left: 33px;
      font-size: 19px;
  }
+
+ .user-nav a:hover{
+    color:orange;
+}
  
  .user_email_title{
      font-weight: bold;
@@ -125,62 +129,83 @@ nav li:hover {
  .user_password_title{
      font-weight: bold;
  }
- 
- /*　登録情報 */
 
- .profile_top_area {
-     display:flex;
- }
 
- .profile_top_title{
-     font-size:large;
-     font-weight: bold;
- }
 
- .profile_top_left_area{
-     margin-top:20px;
-     margin-bottom:20px;
-     margin-right:50px;
-     margin-left:350px;
-     background: #e5e6eb;
-     border-top: solid 5px #5d627b;
-     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
-     width:300px;
-     text-align: center;
- }
+/* contents(投稿メニュー一覧)posted_menu
+--------------------*/
 
- .profile_top_right_area{
-    margin-top:20px;
-     margin-bottom:20px;
-     margin-right:100px;
-     margin-left:50px;
-     background: #e5e6eb;
-     border-top: solid 5px #5d627b;
-     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
-     width:300px;
-     text-align: center;
+ .menu_area{
+    width:70%;
+    display:inline-block;
+    margin-left: 200px;
 }
 
-.menu_area_title{
-    font-size:large;
+.profile_top_title{
+    text-align: center;
+    font-size: 20px;
     font-weight: bold;
-}
-
-.submit_area{
-    padding-top: 20px;
     padding-bottom: 20px;
 }
 
-.submit_btn{
-    font-size: 16px;
-    padding: 8px 17px;
-    border: solid 1px #0f9ada;
+.menu_list{
+    border-top: medium solid gray;
+    box-sizing: border-box;
+}
+
+.favorite_form{
+    float:right;
+}
+
+.favorite_form_list{
+    display: flex;
+}
+
+.fa-star{
+    color:rgb(226, 226, 85);
+    font-size:25px;
+}
+
+.titlebar{
+    vertical-align: middle;
+    border-bottom: thin solid gray;
+    align-items:center;
+}
+
+.title{
+    margin: 4px 8px 4px 8px;
+}
+
+.title a{
+    color:blue;
+    font-size:18px;
+    
+}
+
+.keyword{
+    text-align:center;
+    display:flex;
+}
+
+.key{
+    margin: 4px 8px 4px 0;
+    padding: 3px 16px;
+    border: solid 1px lightgray;
     border-radius: 4px;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
-    background: #03A9F4;
-    color: #FFF;
-    text-decoration: none;
-    text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 0 4px lightgrey;
+    color: #424242;
+    font-size: 14px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.keycutbar{
+    margin: 4px 8px 4px 0;
+}
+
+.method_contents{
+    margin: 4px 8px 4px 0;
+    background-color:oldlace;
 }
 
 /* footer

@@ -109,6 +109,10 @@ h1{
     margin-left: 10px;
 }
 
+.alert{
+    color:tomato;
+}
+
 /* メニュー投稿フォーム  post_menu
  */
  .menu_form{
@@ -308,6 +312,7 @@ footer {
     width: 80%;
     margin: 0 auto;
     text-align: center;
+    padding-top: 80px;
 }
   
 footer img {

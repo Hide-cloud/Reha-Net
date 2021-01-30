@@ -15,7 +15,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/mypage/mypage_tops.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/mypage/mypage_top.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="responsive.css" />
 
         
@@ -77,7 +77,7 @@
                    <div class="user-nav-list">
                       <ul class="user-nav-bar">
                           <li class="user-nav">
-                             <a class="user-nav-link" href="/mypage/{{ Auth::user()->id }}"><span class="user-nav-name"><i class="far fa-star"></i>登録情報</span></a>
+                             <a class="user-nav-link" href="/mypage/{{ Auth::user()->id }}"><span class="user-nav-name"><i class="fas fa-user-circle"></i>登録情報</span></a>
                           </li>
                           <li class="user-nav">|</li>
                           <li class="user-nav">
@@ -85,7 +85,7 @@
                           </li>
                           <li class="user-nav">|</li>
                           <li class="user-nav">
-                             <a class="user-nav-link" href="/mypage/{{ Auth::user()->id }}/posted_menu"><span class="user-nav-name">投稿したメニュー</span></a>
+                             <a class="user-nav-link" href="/mypage/{{ Auth::user()->id }}/posted_menu"><span class="user-nav-name"><i class="fab fa-usps"></i>投稿したメニュー</span></a>
                           </li>
                           <li class="user-nav">|</li>
                           <li class="user-nav">
@@ -144,22 +144,22 @@
                            </div>
                            <div class="disease_form">
                                 <div class="checkbox_area">
-                                   <input type="checkbox" id="03-A" name="disease[]" value="脳血管障害">
-                                       <label for="03-A" class="checkbox03">脳血管障害</label>
-                                    <input type="checkbox" id="03-B" name="disease[]" value="骨折">
-                                        <label for="03-B" class="checkbox03">骨折</label>
-                                    <input type="checkbox" id="03-C" name="disease[]" value="呼吸器疾患">
-                                        <label for="03-C" class="checkbox03">呼吸器疾患</label>
-                                    <input type="checkbox" id="03-D" name="disease[]" value="心疾患">
-                                       <label for="03-D" class="checkbox03">心疾患</label>
-                                    <input type="checkbox" id="03-E" name="disease[]" value="廃用症候群">
-                                        <label for="03-E" class="checkbox03">廃用症候群</label>
-                                    <input type="checkbox" id="03-F" name="disease[]" value="リウマチ">
-                                        <label for="03-F" class="checkbox03">リウマチ</label>
-                                    <input type="checkbox" id="03-G" name="disease[]" value="パーキンソン病">
-                                       <label for="03-G" class="checkbox03">パーキンソン病</label>
-                                    <input type="checkbox" id="03-H" name="disease[]" value="神経疾患">
-                                       <label for="03-H" class="checkbox03">神経疾患</label>
+                                   <input type="checkbox" id="04-A" name="disease[]" value="脳血管障害">
+                                       <label for="04-A" class="checkbox04">脳血管障害</label>
+                                    <input type="checkbox" id="04-B" name="disease[]" value="骨折">
+                                        <label for="04-B" class="checkbox04">骨折</label>
+                                    <input type="checkbox" id="04-C" name="disease[]" value="呼吸器疾患">
+                                        <label for="04-C" class="checkbox04">呼吸器疾患</label>
+                                    <input type="checkbox" id="04-D" name="disease[]" value="心疾患">
+                                       <label for="04-D" class="checkbox04">心疾患</label>
+                                    <input type="checkbox" id="04-E" name="disease[]" value="廃用症候群">
+                                        <label for="04-E" class="checkbox04">廃用症候群</label>
+                                    <input type="checkbox" id="04-F" name="disease[]" value="リウマチ">
+                                        <label for="04-F" class="checkbox04">リウマチ</label>
+                                    <input type="checkbox" id="04-G" name="disease[]" value="パーキンソン病">
+                                       <label for="04-G" class="checkbox04">パーキンソン病</label>
+                                    <input type="checkbox" id="04-H" name="disease[]" value="神経疾患">
+                                       <label for="04-H" class="checkbox04">神経疾患</label>
                                     <input type="text" name="disease[]" placeholder="その他">
                                 </div>
                                 <div class="menu_post_btn">

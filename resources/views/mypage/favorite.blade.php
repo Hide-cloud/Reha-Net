@@ -14,7 +14,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/mypage/favorites.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/mypage/favorite.css') }}" rel="stylesheet">
 
        
     </head>
@@ -74,11 +74,11 @@
                    </div>
                    <ul class="user-nav-bar">
                        <li class="user-nav first-nav">
-                         <a class="user-nav-link" href="/mypage/{{ $user -> id }}"><span class="user-nav-name">登録情報</span></a>
+                         <a class="user-nav-link" href="/mypage/{{ $user -> id }}"><span class="user-nav-name"><i class="fas fa-user-circle"></i>登録情報</span></a>
                        </li>
                        <li class="user-nav">|</li>
                        <li class="user-nav">
-                          <a class="user-nav-link" href="/mypage/{{ $user -> id }}/posted_menu"><span class="user-nav-name">投稿したメニュー</span></a>
+                          <a class="user-nav-link" href="/mypage/{{ $user -> id }}/posted_menu"><span class="user-nav-name"><i class="fab fa-usps"></i>投稿したメニュー</span></a>
                        </li>
                        <li class="user-nav">|</li>
                        <li class="user-nav">
@@ -86,7 +86,7 @@
                        </li>
                        <li class="user-nav">|</li>
                           <li class="user-nav">
-                             <a class="user-nav-link" href="/mypage/{{ $user -> id }}/set_goal"><span class="user-nav-name"><i class="far fa-star"></i>目標を設定する</span></a>
+                             <a class="user-nav-link" href="/mypage/{{ $user -> id }}/set_goal"><span class="user-nav-name"><i class="fas fa-bullseye"></i>目標を設定する</span></a>
                           </li>
                     </ul>
                </div>
@@ -101,9 +101,7 @@
                             <div class="titlebar">
                                 <div class="title">
                                    <a href="/mypage/favorite_menu/{{ $favorite_menu -> id }}">{{ $favorite_menu -> title }}</a>
-                                </div>
-
-                                <div class="favorite_form"> 
+                                   <div class="favorite_form"> 
                                        <form method="post">
                                           @csrf
                                           <ul class="favorite_form_list">
@@ -113,8 +111,10 @@
                                             <li><i class="fas fa-star"></i></li>
                                           </ul>
                                        </form>
+                                   </div>
                                 </div>
 
+                                
 
 
                                 <ul class="keyword">
