@@ -30,6 +30,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 //ホームページからメニュー検索
 Route::post('/home', 'MenuController@serch')->name('serch');
 
+//ホームページからおすすめメニュー検索
+Route::get('/recomend/{id}', 'MenuController@serch_recomend')->name('serch_recomend');
 
 //メニュー詳細ページへ遷移
 Route::get('/menu/{id}', 'MenuController@show_menu_detail')->name('show_detail');
@@ -70,8 +72,11 @@ Route::post('/post_menu', 'MenuController@post_menu')->name('post_menu');
 Route::post('/post_menu/myvideo', 'MenuController@post_menu_myvideo')->name('post_menu_myvideo');
 
 
-//マイページを表示
+//マイページを表示(登録情報)
 Route::get('/mypage/{id}', 'HomeController@show_mypage')->name('show_mypage');
+
+//登録情報を変更
+Route::post('/mypage/{id}', 'HomeController@account_edit')->name('edit');
 
 //マイページ(投稿したメニュー)を表示
 Route::get('/mypage/{id}/posted_menu', 'HomeController@show_mypage_postedMenu')->name('show_mypage_postedMenu');
@@ -81,6 +86,12 @@ Route::post('/mypage/{id}/posted_menu', 'HomeController@delete_menu')->name('del
 
 //マイページ(お気に入り)を表示
 Route::get('/mypage/{id}/favorite', 'HomeController@show_mypage_favorite')->name('show_mypage_favorite');
+
+//マイページ(目標設定)を表示
+Route::get('/mypage/{id}/set_goal', 'HomeController@set_goal')->name('set_goal');
+
+//目標を変更する
+Route::post('/mypage/{id}/set_goal', 'HomeController@change_goal')->name('change_goal');
 
 //マイページ(お気に入り)からお気に入り削除する
 Route::post('/mypage/{id}/favorite', 'HomeController@delete_favorite')->name('delete_favorite');

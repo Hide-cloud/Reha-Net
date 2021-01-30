@@ -123,6 +123,32 @@ nav li:hover {
     margin-left:10px;
 }
 
+.recomend_btn{
+    margin-top: 40px;
+    margin-left: 250px;
+    margin-bottom: 40px;
+}
+
+a.btn-c {
+    font-size: 1.3rem;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    color: #fff;
+    border-radius: 100vh;
+    background: #eb6877;
+    -webkit-box-shadow: 0 5px 0 #e85163;
+    box-shadow: 0 5px 0 #e85163;
+}
+
+a.btn-c:hover {
+    -webkit-transform: translate(0, 1px);
+    transform: translate(0, 1px);
+    color: #fff;
+    background: #ee7f8b;
+    -webkit-box-shadow: 0 2px 0 #e85163;
+    box-shadow: 0 2px 0 #e85163;
+}
+  
+
 .search-genre__title{
     border-left: thick solid rgb(82, 142, 219);
 }
@@ -183,6 +209,7 @@ nav li:hover {
 --------------------*/
 
 .areas{
+    margin-top: 50px;
     width:325px;
     height:450px;
     margin-left:120px;
@@ -244,6 +271,7 @@ nav li:hover {
 --------------------*/
 
 footer {
+    padding-top: 60px;
     width: 80%;
     margin: 0 auto;
     text-align: center;

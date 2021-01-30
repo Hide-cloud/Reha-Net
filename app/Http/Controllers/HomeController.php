@@ -9,6 +9,7 @@ use App\Menu;
 use App\Favorite;
 use App\Mymenu;
 use Auth;
+use Validator;
 
 class HomeController extends Controller
 {
@@ -28,7 +29,7 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
-    //マイページへ
+    //homeページへ
     public function index()
     {
         //件数をカウント(上肢)
@@ -67,6 +68,7 @@ class HomeController extends Controller
         return view('post_menu_myvideo');
     }
 
+
     //マイページへ
     public function show_mypage($id)
     {
@@ -81,6 +83,28 @@ class HomeController extends Controller
         //withメソッドで値をviewへ返す
         return view('mypage.mypage',['user' => $user],['favorites' => $favorites],['posted_menus' => $posted_menus]);
     }
+
+
+    //登録情報を変更
+    public function account_edit(Request $request)
+    {
+
+        // validation ここから追加
+        $validatedData = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required','string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required','string', 'min:8']
+        ]);
+
+        User::where('id',$request->id )
+          ->update(['name' => $request->name],['email' => $request->email],['password' => $request->password]);
+        
+
+        //変更完了画面へ
+        return view('mypage.edited');
+    }
+
+    
 
     //マイページ(投稿したメニュー一覧)へ
     public function show_mypage_postedMenu($id)
@@ -178,5 +202,29 @@ class HomeController extends Controller
 
         //withメソッドで値をviewへ返す
         return view('userprofile.posted',['user' => $user],['posted_menus' => $posted_menus]);
+    }
+
+
+    //マイページ(目標設定ページ)へ
+    public function set_goal($id)
+    {
+
+        $user =User::find($id);
+    
+        return view('mypage.set_goal',['user' => $user]);
+    }
+
+    //目標を変更
+    public function change_goal(Request $request)
+    {
+
+
+        User::where('id',$request->user_id )
+          ->update(['goal' => $request->goal],['disease' => $request->disease]);
+        
+          $user =User::find($request->user_id);
+
+        //変更完了画面へ
+        return view('mypage.set_goal',['user' => $user]);
     }
 }

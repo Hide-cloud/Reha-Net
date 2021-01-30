@@ -15,7 +15,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/home.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/homes.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="responsive.css" />
 
         
@@ -76,6 +76,11 @@
         <div class="contents">
             <div class="area">
               <div class="menu">
+                 <h2 class='search-genre__title'><span>あなたへのおすすめメニュー</span></h2>
+                 <div class="recomend_btn">
+                       <a href="/recomend/{{ Auth::user()->id }}" class="btn btn-c"><i class="fas fa-hand-point-right"></i>おすすめメニューはこちらから検索</a>
+                 </div>
+
                  <h2 class='search-genre__title'><span>キーワードから探す</span></h2>
                   <form  class="keywordform" method="post">
                   @csrf
@@ -330,7 +335,7 @@
         <footer>
             <div class="footer-list">
               <a href="#">TOPへ</a>
-              <p>&copy;2020 Hidetaka Yamasaki  Profile</p>
+              <p>&copy;Reha-Net</p>
             </div>
         </footer>
 

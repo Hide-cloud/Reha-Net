@@ -14,8 +14,9 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/mypage/posted_menus.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/serch_menus.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="responsive.css" />
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
         
     </head>
@@ -56,95 +57,85 @@
                 </ul>
 
             </nav>
-        
         </header>
+
 
 
         <!-- container -->
         <div class="warapper">
              <div class="directory">
                  <div class="directory-list">
-                     <a href="{{ route('home') }}"><i class="fas fa-home"></i>Reha-Net</a> 
-                     › <i>{{ $user -> name }}さんのマイページ</i> 
+                     <a href="{{ route('home') }}"><i class="fas fa-home"></i>Reha-Net</a>  
+                     › <span>あなたへのおすすめメニュー</span>
                  </div>
              </div>
-             <div class="contents-wraps">
-               <div class="content-wrap">
-                   <div class='user-name'>
-                      <p>{{ Auth::user()->name }}さん のマイページ</p>
-                   </div>
-                   <div class="user-nav-list">
-                      <ul class="user-nav-bar">
-                          <li class="user-nav">
-                             <a class="user-nav-link" href="/mypage/{{ Auth::user()->id }}"><span class="user-nav-name">登録情報</span></a>
-                          </li>
-                          <li class="user-nav">|</li>
-                          <li class="user-nav">
-                            <a class="user-nav-link" href="/mypage/mymenu/{{ Auth::user()->id }}"><span class="user-nav-name"><i class="fas fa-running"></i>Let's リハビリ</span></a>
-                          </li>
-                          <li class="user-nav">|</li>
-                          <li class="user-nav">
-                             <a class="user-nav-link" href="/mypage/{{ $user -> id }}/favorite"><span class="user-nav-name"><i class="far fa-star"></i>お気に入り登録済み</span></a>
-                          </li>
-                          <li class="user-nav">|</li>
-                          <li class="user-nav">
-                             <a class="user-nav-link" href="/mypage/{{ $user -> id }}/set_goal"><span class="user-nav-name"><i class="far fa-star"></i>目標を設定する</span></a>
-                          </li>
-                       </ul>
-                   </div>
-               </div>
+
+             <div class="searched_result">
+                  <div class="searched_heading-box__result">
+                     <span class="result_title">あなたへのおすすめメニュー</span>
+                     <span class="result_count">{{ $serch_menus_count }}件</span>
+                  </div>
              </div>
+
+
              <div class="menu_area">
-               <div class="menu_area_title">
-                 <p>｜投稿したメニュー｜</p>
-               </div>
-                @if(isset($posted_menus))
-                   @foreach($posted_menus as $posted_menu)
+                @if(isset($serch_menus))
+                   @foreach($serch_menus as $serch_menu)
                        <div class="menu_list">
                             <div class="titlebar">
                                 <div class="title">
-                                   <a href="/menu/{{ $posted_menu -> id }}">{{ $posted_menu -> title }}</a>
+                                   <a href="/menu/{{ $serch_menu -> id }}">{{ $serch_menu -> title }}</a>
                                 </div>
-                                <div class="posted_menu_form"> 
-                                       <form method="post">
-                                          @csrf
-                                          <ul class="posted_menu_form_list">
-                                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                            <input type="hidden" name="menu_id" value="{{ $posted_menu -> id }}">
-                                            <li><input type="submit" value="投稿を削除する"></li>
-                                          </ul>
-                                       </form>
-                                </div>
+                                
+                                <ul class="keyword">
+                                    <li class="key">対象疾患：</li>
+                                  @if(isset($serch_menu -> disease))
+                                  @foreach($serch_menu -> disease as $disease )
+                                    <li class="key">{{ $disease }}</li>
+                                    <li class="keycutbar">/</li>
+                                  @endforeach
+                                  @endif
+                                </ul>
+                                
                                 <ul class="keyword">
                                     <li class="key">キーワード：</li>
-                                  @foreach($posted_menu -> keyword as $keyword )
+                                  @if(isset($serch_menu -> keyword))
+                                  @foreach($serch_menu -> keyword as $keyword )
                                     <li class="key">{{ $keyword }}</li>
                                     <li class="keycutbar">/</li>
                                   @endforeach
+                                  @endif
                                 </ul>
+
                              </div>
                              <div class="method">
-                               <ul class="keyword">
-                                  <li class="key">方法：</li>
-                                  <li class="method_contents">{{ $posted_menu -> method }}</li>
+                               <ul class="method_area">
+                                  <li class="method_title">方法：</li>
+                                  <li class="method_contents">{{ $serch_menu -> method }}</li>
                                </ul>
                              </div>
                        </div>
                    @endforeach
+                   <div class="d-flex justify-content-center">
+                        {{ $serch_menus->appends(array('sort' => 'date'))->links('vendor.pagination.sample-pagination') }}
+                   </div>
                 @elseif(empty($serch_menus))
-                  <p>まだ"{{ $serch_menu }}"に関するメニューの投稿がありません</p>
+                  <p>おすすめのメニューがありません</p>
+                  <div class="explain">
+                     <p>※おすすめメニューを検索するにはマイページから目標設定をしてください</p>
+                  </div>
+                  
                 @endif
                    
              </div>
+        
         </div>
         
-
-
         <!-- footer -->
         <footer>
             <div class="footer-list">
               <a href="#">TOPへ</a>
-              <p>&copy;2020 Hidetaka Yamasaki  Profile</p>
+              <p>&copy;Reha-Net</p>
             </div>
         </footer>
 

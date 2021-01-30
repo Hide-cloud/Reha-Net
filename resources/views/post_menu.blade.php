@@ -70,6 +70,15 @@
                    <div class="moveMyvideo">
                         <button><a href="/post_menu/myvideo">※自分で動画を投稿する場合はこちらへ</a></button>
                    </div>
+
+                   @if ($errors->any())
+                     <div class="alert alert-danger">
+                          @foreach ($errors->all() as $error)
+                           <li>{{ $error }}</li>
+                          @endforeach
+                     </div>
+                   @endif
+
                    <div class="menu_form">
                      <div class="menu_form_fontarea">
                        <form method="post" enctype="multipart/form-data">

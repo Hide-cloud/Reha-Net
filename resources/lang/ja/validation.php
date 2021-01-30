@@ -132,6 +132,46 @@ return [
         '属性名' => [
             'ルール名' => 'カスタムメッセージ',
         ],
+
+        
+        'name' => [
+            'required' => 'ユーザー名を入力してください！'
+        ],
+
+        'email' => [
+            'required' => 'メールアドレスを入力してください！'
+        ],
+
+        'password' => [
+            'required' => 'パスワードを入力してください！'
+        ],
+
+
+        'title' => [
+            'required' => 'メニュータイトルを入力してください！'
+        ],
+
+        'disease' => [
+            'required' => '対象疾患を選択してください！'
+        ],
+
+        'keyword' => [
+            'required' => 'ジャンルを選択してください！'
+        ],
+
+        'method' => [
+            'required' => '方法を入力してください！'
+        ],
+
+        'youtube_url' => [
+            'required' => 'YouTubeのURLを入力してください！'
+        ],
+
+        'video_path' => [
+            'required' => '動画を選択してください！'
+        ],
+
+
     ],
 
     /*

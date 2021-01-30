@@ -15,7 +15,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/mypage/start_menu.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/mypage/edited.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="responsive.css" />
 
         
     </head>
@@ -56,8 +57,8 @@
                 </ul>
 
             </nav>
+        
         </header>
-
 
 
         <!-- container -->
@@ -65,60 +66,50 @@
              <div class="directory">
                  <div class="directory-list">
                      <a href="{{ route('home') }}"><i class="fas fa-home"></i>Reha-Net</a> 
-                     › <a href="/mypage/{{ Auth::user()->id }}">マイページ</a>
-                     › <a href="/">マイメニュー</a> 
+                     › <i>{{ Auth::user()->name }}さんのマイページ</i> 
                  </div>
              </div>
-        </div>
-
-
-        <div class="title_wrapper">
-           <div class="title_contents">
-               <div class="attention_messeage">
-                   
+             <div class="contents-wraps">
+               <div class="content-wrap">
+                   <div class='user-name'>
+                      <p>{{ Auth::user()->name }}さん のマイページ</p>
+                   </div>
+                   <div class="user-nav-list">
+                      <ul class="user-nav-bar">
+                          <li class="user-nav">
+                            <a class="user-nav-link" href="/mypage/mymenu/{{ Auth::user()->id }}"><span class="user-nav-name"><i class="fas fa-running"></i>Let's リハビリ</span></a>
+                          </li>
+                          <li class="user-nav">|</li>
+                          <li class="user-nav">
+                             <a class="user-nav-link" href="/mypage/{{ Auth::user()->id }}/posted_menu"><span class="user-nav-name">投稿したメニュー</span></a>
+                          </li>
+                          <li class="user-nav">|</li>
+                          <li class="user-nav">
+                             <a class="user-nav-link" href="/mypage/{{ Auth::user()->id }}/favorite"><span class="user-nav-name"><i class="far fa-star"></i>お気に入り登録済み</span></a>
+                          </li>
+                       </ul>
+                   </div>
                </div>
-               <div class="title_area">
-                    <div class="start_title">
-                        <p>{{ Auth::user()->name }}さんのリハビリメニュー</p>
-                    </div>
-               </div>
-           </div>
-        </div>
-
-             
-       <!-- container -->
-        <div class="container">
-          <div class="menu_flex">
-            <div class="mymenu_area">
-              @if(isset($mymenus))
-                @foreach( $mymenus as $mymenu )
-                  <div class="mymenu">
-                    <div class="mymenu_contents">
-                        <div class="title">
-                           <a href="/mypage/favorite_menu/{{ $mymenu -> favorite_menu_id }}">{{ $mymenu -> title }}</a>
+             </div>
+             <div class="profile_area">
+                 <div class="profile_top_area">
+                        <div class="user_register_information">
+                            <div class="information_area">
+                                 
+                                 <div class="edited_messeage">
+                                     <p>登録情報を変更しました！</p>
+                                 </div>
+                                 <div class="mypageLink">
+                                     <a href="/mypage/{{ Auth::user()->id }}">登録情報を確認する</a>
+                                 </div>
+                            </div>  
                         </div>
-
-                        <div class="method">
-                          <div class="keyword">
-                             <p class="key">方法：</p>
-                             <p class="method_contents">{{ $mymenu -> method }}</p>
-                          </div>
-                        </div>
-                    </div>
-                  </div>
-                @endforeach
-              @elseif(!isset($mymenus))
-                  <div class="notmymenu">
-                      <div class="notmymenu_contents">
-                          <p>まだマイメニューに登録していません</p>
-                      </div>
-                  </div>
-              @endif
-            <div>
-          </div>
+                 </div>
+                 
+             </div>
         </div>
         
-        
+
 
         <!-- footer -->
         <footer>

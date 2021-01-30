@@ -87,6 +87,10 @@
                           <li class="user-nav">
                              <a class="user-nav-link" href="/mypage/{{ $user -> id }}/favorite"><span class="user-nav-name"><i class="far fa-star"></i>お気に入り登録済み</span></a>
                           </li>
+                          <li class="user-nav">|</li>
+                          <li class="user-nav">
+                             <a class="user-nav-link" href="/mypage/{{ $user -> id }}/set_goal"><span class="user-nav-name"><i class="far fa-star"></i>目標を設定する</span></a>
+                          </li>
                        </ul>
                    </div>
                </div>
@@ -122,6 +126,16 @@
                       <div class="menu_area_title">
                         <p>｜登録情報を変更する｜</p>
                       </div>
+                      
+                      <!-- validation -->
+                       @if ($errors->any())
+                         <div class="alert alert-danger">
+                              @foreach ($errors->all() as $error)
+                               <li>{{ $error }}</li>
+                              @endforeach
+                         </div>
+                       @endif
+
                       <form method="post">
                         @csrf
                           <div class="user_register_information">
@@ -131,6 +145,7 @@
                                            <p>新しいユーザー名</p>
                                        </div>
                                        <div class="user_name">
+                                           <input type="hidden" name="id" value="{{ Auth::user()->id }}">
                                            <input type="text" name="name">
                                        </div>
                                    </div>
@@ -168,7 +183,7 @@
         <footer>
             <div class="footer-list">
               <a href="#">TOPへ</a>
-              <p>&copy;2020 Hidetaka Yamasaki  Profile</p>
+              <p>&copy;Reha-Net</p>
             </div>
         </footer>
 

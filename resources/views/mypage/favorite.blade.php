@@ -84,6 +84,10 @@
                        <li class="user-nav">
                           <a class="user-nav-link" href="/mypage/mymenu/{{ Auth::user()->id }}"><span class="user-nav-name"><i class="fas fa-running"></i>Let's リハビリ</span></a>
                        </li>
+                       <li class="user-nav">|</li>
+                          <li class="user-nav">
+                             <a class="user-nav-link" href="/mypage/{{ $user -> id }}/set_goal"><span class="user-nav-name"><i class="far fa-star"></i>目標を設定する</span></a>
+                          </li>
                     </ul>
                </div>
              </div>

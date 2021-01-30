@@ -13,6 +13,15 @@ class MenuController extends Controller
     //投稿メニューをDBに登録し、投稿完了画面へ(Youtubeバージョン)
     public function post_menu(Request $request){
         
+        // validation ここから追加
+         $validatedData = $request->validate([
+             'title' => ['required'],
+             'disease' => ['required'],
+             'keyword' => ['required'],
+             'method' => ['required'],
+             'youtube_url' => ['required']
+         ]);
+
         //メニューをテーブルに追加
         $menuPost = $request->all();
         Menu::create($menuPost);
@@ -23,6 +32,15 @@ class MenuController extends Controller
     //投稿メニューをDBに登録し、投稿完了画面へ(自作動画バージョン)
     public function post_menu_myvideo(Request $request){
         
+        // validation ここから追加
+        $validatedData = $request->validate([
+            'title' => ['required'],
+            'disease' => ['required'],
+            'keyword' => ['required'],
+            'method' => ['required'],
+            'video_path' => ['required']
+        ]);
+
         //video_path値に名前をつける
         $menu_video = $request->file('video_path')->hashName();
 
@@ -41,6 +59,20 @@ class MenuController extends Controller
         $menu_record->save();
 
         return view('posted');
+   }
+
+
+   //おすすめメニュー検索して一覧表示へ
+   public function serch_recomend($id){
+
+    $goal=Auth::user()->goal;
+    $disease=Auth::user()->disease;
+    $serch_menus = Menu::where('title', 'like', "%$goal%")->orWhere('disease',"$disease")->paginate(10);
+    
+    //件数をカウント
+    $serch_menus_count = Menu::where('title', 'like', "%$goal%")->orWhere('disease',"$disease")->count();
+
+    return view('recomend',['serch_menus' => $serch_menus])->with('serch_menus_count',$serch_menus_count);
    }
 
 
