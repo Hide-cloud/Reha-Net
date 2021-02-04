@@ -66,11 +66,11 @@ class MenuController extends Controller
    public function serch_recomend($id){
 
     $goal=Auth::user()->goal;
-    $disease=Auth::user()->disease;
-    $serch_menus = Menu::where('title', 'like', "%$goal%")->orWhere('disease',"$disease")->paginate(10);
+    //$disease=Auth::user()->disease;
+    $serch_menus = Menu::where('title', 'like', "%$goal%")->paginate(10);
     
     //件数をカウント
-    $serch_menus_count = Menu::where('title', 'like', "%$goal%")->orWhere('disease',"$disease")->count();
+    $serch_menus_count = Menu::where('title', 'like', "%$goal%")->count();
 
     return view('recomend',['serch_menus' => $serch_menus])->with('serch_menus_count',$serch_menus_count);
    }

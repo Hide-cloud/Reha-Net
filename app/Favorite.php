@@ -26,25 +26,6 @@ class Favorite extends Model
         'keyword' => 'array',
     ];
 
-    
-
-    ////Userクラスとリレーション定義
-    //public function users()
-    //{
-    //   return $this->belongsToMany(User::class);
-    //}
-//
-    ////Menuクラスとリレーション定義
-    //public function menus()
-    //{
-    //   return $this->belongsToMany(Menu::class);
-    //}
-
-    //
-    //public function user()
-    //{
-    //    return $this->belongsTo(User::class);
-    //}
 
     
     public function user(){

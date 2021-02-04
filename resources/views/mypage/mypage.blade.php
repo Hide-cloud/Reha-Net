@@ -167,7 +167,7 @@
                                    </div>
                                    <div class="submit_area">
                                       <div class="change_submit">
-                                        <input type="submit" value="変更">
+                                        <input type="submit" value="変更" onClick="edit_alert(event);return false;">
                                       </div>
                                    </div>
                                </div>  
@@ -188,6 +188,6 @@
         </footer>
 
 
-        <script src="main.js"></script>
+        <script src="{{ asset('/js/post.js') }}"></script>
     </body>
 </html>

@@ -217,11 +217,18 @@ class HomeController extends Controller
     //目標を変更
     public function change_goal(Request $request)
     {
-
-
-        User::where('id',$request->user_id )
-          ->update(['goal' => $request->goal],['disease' => $request->disease]);
-        
+        if(isset($request->goal) && isset($request->disease)){
+            User::where('id',$request->user_id )
+            ->update(['goal' => $request->goal],['disease' => $request->disease]);
+        }
+        elseif(isset($request->goal) && !isset($request->disease)){
+            User::where('id',$request->user_id )
+            ->update(['goal' => $request->goal]); 
+        }
+        elseif(!isset($request->goal) && isset($request->disease)){
+            User::where('id',$request->user_id )
+            ->update(['disease' => $request->disease]); 
+        }
           $user =User::find($request->user_id);
 
         //変更完了画面へ

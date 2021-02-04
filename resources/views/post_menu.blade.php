@@ -154,7 +154,7 @@
                            
                            <div class="menu_post_btn">
                               <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                              <input type="submit" value="作成する" class="submit_form">
+                              <input type="submit" value="作成する" class="submit_form" onClick="delete_alert(event);return false;">
                            </div>
                           
                        </form>
@@ -211,6 +211,6 @@
         </footer>
 
 
-        <script src="main.js"></script>
+        <script src="{{ asset('/js/post.js') }}"></script>
     </body>
 </html>

@@ -69,7 +69,7 @@
                         <h1>メニューを作る(自分で動画を投稿する)</h1>
                    </div>
                    <div class="moveMyvideo">
-                        <button><a href="/post_menu/myvideo">※YouTube動画を投稿する場合はこちらへ</a></button>
+                        <button><a href="/post_menu">※YouTube動画を投稿する場合はこちらへ</a></button>
                    </div>
 
                   <!-- validation -->
@@ -153,7 +153,7 @@
                            
                            <div class="menu_post_btn">
                               <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                              <input type="submit" value="作成する" class="submit_form">
+                              <input type="submit" value="作成する" class="submit_form" onClick="delete_alert(event);return false;">
                            </div>
                           
                        </form>
@@ -208,6 +208,6 @@
         </footer>
 
 
-        <script src="main.js"></script>
+        <script src="post.js"></script>
     </body>
 </html>
