@@ -42,6 +42,7 @@
                 @auth
                     <li><a href="{{ url('/home') }}" class="js-smooth-scroll">{{ Auth::user()->name }}</a></li>
                 @else
+                    <li><a href="/login/guest" class="js-smooth-scroll">ゲストログイン</a></li>
                     <li><a href="{{ route('login') }}" class="js-smooth-scroll">ログイン</a></li>
                 @if (Route::has('register'))
                     <li><a href="{{ route('register') }}" class="js-smooth-scroll">新規登録</a></li>

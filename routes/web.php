@@ -23,6 +23,9 @@ Route::post('/', 'MenuController@serch_nonlog')->name('serch_nonlog');
 
 Auth::routes();
 
+//ゲストログイン
+Route::get('/login/guest', 'Auth\LoginController@guestLogin');
+
 //ホームページへ遷移
 Route::get('/home', 'HomeController@index')->name('home');
 

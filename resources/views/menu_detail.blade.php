@@ -15,7 +15,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <!-- css -->
-        <link href="{{ asset('css/menu_details.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/menu_detail.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="responsive.css" />
 
         
@@ -161,14 +161,15 @@
                        <div class="video">
                           @if(isset($menu -> youtube_url))
                            <?php 
-                             $str = str_replace("https://youtu.be/","",$menu -> youtube_url);
+                             //URLから直接コピーした場合でも共有からURLをコピーした場合でも表示できるように後ろから11番目の文字列取得する
+                             $str = substr($menu -> youtube_url, -11);
                              //iframe用のアドレスに変換する
                              $return_ad = '<iframe width="560" height="315" src="https://www.youtube.com/embed/'.$str.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
                            ?>
                            <p><?php echo $return_ad ?></p>
                           @elseif(isset($menu -> video_path))
                            <video controls poster="" id="video" width="560" height="315" type="video/mp4">
-                           　　<source src="{{ asset('storage/menu_video/'.$menu -> video_path) }}"　type="video/mp4">
+                           　　<source src="{{ asset('storage/app/public/menu_video/'.$menu -> video_path) }}"　type="video/mp4">
                               <p>このブラウザでは動画を再生することができません。最新版のブラウザをご利用ください。</p>
                            </video>
                            <!-- 自動再生バージョン
